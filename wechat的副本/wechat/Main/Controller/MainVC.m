@@ -46,16 +46,6 @@
     }
     self.selfArray = storyMuteAry;
     
-    
-    
-//    MainModel *mod = [[MainModel alloc] initWithDictionary:data];
-    
-//    [self.selfArray addObject:mod];
-    
-//    self.model = [[MainModel alloc] initWithDictionary:data];
-    
-    
-    
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
 }
@@ -84,9 +74,7 @@
     if (cell == nil) {
         cell = [[MainCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
     }
-
     MainModel *model = self.selfArray[indexPath.row];
-    
     cell.title.text = model.title;
     cell.content.text = model.content;
     cell.imgView.image = [UIImage imageNamed:model.image];

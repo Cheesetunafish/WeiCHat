@@ -32,6 +32,7 @@
 		7ABDDC47285386E30079C156 /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDDC46285386E30079C156 /* BookModel.m */; };
 		7ABDDC4C285623940079C156 /* FindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDDC4B285623940079C156 /* FindCell.m */; };
 		7ABDDC4F2856253F0079C156 /* BannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDDC4E2856253F0079C156 /* BannerView.m */; };
+		7ABDDC5428563A3A0079C156 /* MineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDDC5328563A3A0079C156 /* MineCell.m */; };
 		7F93F5D82DF62DFDFC6520C5 /* Pods_wechatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97595932AE43AD9131BBFE25 /* Pods_wechatTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,8 @@
 		7ABDDC4B285623940079C156 /* FindCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindCell.m; sourceTree = "<group>"; };
 		7ABDDC4D2856253F0079C156 /* BannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerView.h; sourceTree = "<group>"; };
 		7ABDDC4E2856253F0079C156 /* BannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerView.m; sourceTree = "<group>"; };
+		7ABDDC5228563A3A0079C156 /* MineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCell.h; sourceTree = "<group>"; };
+		7ABDDC5328563A3A0079C156 /* MineCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCell.m; sourceTree = "<group>"; };
 		85BEF231465AE24881C5ECC0 /* Pods_wechat_wechatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wechat_wechatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97595932AE43AD9131BBFE25 /* Pods_wechatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wechatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B341FF9F4E9A793E6A729138 /* Pods-wechat-wechatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat-wechatUITests.release.xcconfig"; path = "Target Support Files/Pods-wechat-wechatUITests/Pods-wechat-wechatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -251,8 +254,8 @@
 		7ABDDB5F284C81ED0079C156 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				7ABDDB60284C81FE0079C156 /* MineVC.h */,
-				7ABDDB61284C81FE0079C156 /* MineVC.m */,
+				7ABDDC5128563A1D0079C156 /* View */,
+				7ABDDC5028563A120079C156 /* Controller */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -327,6 +330,24 @@
 				7ABDDC4B285623940079C156 /* FindCell.m */,
 				7ABDDC4D2856253F0079C156 /* BannerView.h */,
 				7ABDDC4E2856253F0079C156 /* BannerView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7ABDDC5028563A120079C156 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDDB60284C81FE0079C156 /* MineVC.h */,
+				7ABDDB61284C81FE0079C156 /* MineVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7ABDDC5128563A1D0079C156 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDDC5228563A3A0079C156 /* MineCell.h */,
+				7ABDDC5328563A3A0079C156 /* MineCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -595,6 +616,7 @@
 				7ABDDB62284C81FE0079C156 /* MineVC.m in Sources */,
 				7ABDDB06284C7A9F0079C156 /* MainVC.m in Sources */,
 				7AA870B3283DB32C00DAE17B /* main.m in Sources */,
+				7ABDDC5428563A3A0079C156 /* MineCell.m in Sources */,
 				7AA870D7283DB7B300DAE17B /* LogVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

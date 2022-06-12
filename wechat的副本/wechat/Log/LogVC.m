@@ -6,6 +6,7 @@
 //
 
 #import "LogVC.h"
+#import "MainVC.h"
 //Tool
 #import "AccountTool.h"
 #import "Masonry.h"
@@ -124,8 +125,9 @@
     btn.selected = !btn.selected;
     if (btn.selected == YES) {  //点击存储，yes
         btn.backgroundColor = [UIColor grayColor];
-        
         [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"isLoad"];
+        MainVC *mainVC = [[MainVC alloc] init]; 
+        [self.navigationController pushViewController:mainVC animated:NO];
         
     }
     else{   //没点击，no

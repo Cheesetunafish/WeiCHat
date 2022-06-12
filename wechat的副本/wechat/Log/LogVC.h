@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIButton *logBtn;
 
 
-- (void)tagLog:(UIButton *)btn;
+- (void)logIn:(UIButton *)btn;
 - (void)getUserDefault;
 @end
 
