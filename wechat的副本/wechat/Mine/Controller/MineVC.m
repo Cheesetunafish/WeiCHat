@@ -10,6 +10,10 @@
 #import "LogVC.h"
 //view
 #import "MineCell.h"
+//model
+#import "MineModel.h"
+//tool
+#import "Masonry.h"
 
 @interface MineVC ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -17,7 +21,9 @@
 @property (nonatomic, strong) UITableView *table;
 //退出按钮
 @property (nonatomic, strong) UIButton *Btn;
-
+@property (nonatomic, copy) NSMutableArray *selfArray1;
+@property (nonatomic, copy) NSMutableArray *selfArray2;
+@property (nonatomic, copy) NSMutableArray *selfArray3;
 @end
 
 @implementation MineVC
@@ -30,7 +36,44 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-    // Do any additional setup after loading the view.
+    //读取plist
+    //1.创建路径（maybe
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"MinePlist" ofType:@"plist"];
+    //2.获取路径
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    //3.打印数据
+    NSLog(@"%@", data);
+    
+    //取出每一个字典放入数组
+    NSArray *array0 = data[@"0"];
+    NSMutableArray *storyMuteAry0 = [NSMutableArray array];
+    for (int i = 0; i < 1; i++) {
+        //取每一个字典
+        NSDictionary *everyDic = array0[i];
+        MineModel *mineModel = [[MineModel alloc] initWithDictionary:everyDic];
+        [storyMuteAry0 addObject:mineModel];
+    }
+    self.selfArray1 = storyMuteAry0;
+    
+    NSArray *array1 = data[@"1"];
+    NSMutableArray *storyMuteAry1 = [NSMutableArray array];
+    for (int i = 0; i < 1; i++) {
+        //取每一个字典
+        NSDictionary *everyDic = array1[i];
+        MineModel *mineModel = [[MineModel alloc] initWithDictionary:everyDic];
+        [storyMuteAry1 addObject:mineModel];
+    }
+    self.selfArray2 = storyMuteAry1;
+    
+    NSArray *array2 = data[@"2"];
+    NSMutableArray *storyMuteAry2 = [NSMutableArray array];
+    for (int i = 0; i < 4; i++) {
+        //取每一个字典
+        NSDictionary *everyDic = array2[i];
+        MineModel *mineModel = [[MineModel alloc] initWithDictionary:everyDic];
+        [storyMuteAry2 addObject:mineModel];
+    }
+    self.selfArray3 = storyMuteAry2;
 }
 
 
@@ -60,29 +103,36 @@
             return 1;
             break;
         default:
-            return 5;
+            return 4;
             break;
     }
 }
 
 //cell内容 自定义
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *identify = @"cell";
     MineCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (cell == nil) {
         cell = [[MineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
     }
     if (indexPath.section == 0) {
-        cell.title.text = @"userName";
+        MineModel *model = self.selfArray1[indexPath.row];
+        cell.title.text = model.title;
         //灰色微信号
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSString *userAccount = [userDefaults objectForKey:@"userAccount"];
-        cell.content.text = userAccount;
+        NSString *cnt = [NSUserDefaults.standardUserDefaults objectForKey:@"userAccount"];
+        cell.content.text = [NSString stringWithFormat:@"微信号：%@",cnt];
     }
-    else
-        cell.title.text = @"text";
-        
-    
+    else if (indexPath.section == 1) {
+        MineModel *model = self.selfArray2[indexPath.row];
+        cell.title.text = model.title;
+        cell.imageView.image = [UIImage imageNamed:model.image];
+    }
+    else {
+        MineModel *model = self.selfArray3[indexPath.row];
+        cell.title.text = model.title;
+        cell.imageView.image = [UIImage imageNamed:model.image];
+    }
     return cell;
 }
 
@@ -100,7 +150,7 @@
 - (UIButton *)Btn {
     if (_Btn == nil) {
         _Btn = [[UIButton alloc] init];
-        _Btn.frame = CGRectMake(0, self.view.frame.size.height - 220, self.view.frame.size.width, 50);
+        _Btn.frame = CGRectMake(0, self.view.frame.size.height - 270, self.view.frame.size.width, 50);
         [_Btn setTitle:@"退出" forState:UIControlStateNormal];
         [_Btn setBackgroundColor:[UIColor whiteColor]];
         [_Btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

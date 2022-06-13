@@ -35,6 +35,8 @@
 		7ABDDC5428563A3A0079C156 /* MineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDDC5328563A3A0079C156 /* MineCell.m */; };
 		7ABDDC5A2857001C0079C156 /* MainPic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDDC592857001C0079C156 /* MainPic.xcassets */; };
 		7ABDDC5D2857072C0079C156 /* UIView+RoundCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDDC5C2857072C0079C156 /* UIView+RoundCorner.m */; };
+		7AD66663285783B5003F69B5 /* MinePlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AD66662285783B5003F69B5 /* MinePlist.plist */; };
+		7AD66667285785C8003F69B5 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD66666285785C8003F69B5 /* MineModel.m */; };
 		7F93F5D82DF62DFDFC6520C5 /* Pods_wechatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97595932AE43AD9131BBFE25 /* Pods_wechatTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +108,9 @@
 		7ABDDC592857001C0079C156 /* MainPic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MainPic.xcassets; sourceTree = "<group>"; };
 		7ABDDC5B2857072C0079C156 /* UIView+RoundCorner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+RoundCorner.h"; sourceTree = "<group>"; };
 		7ABDDC5C2857072C0079C156 /* UIView+RoundCorner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+RoundCorner.m"; sourceTree = "<group>"; };
+		7AD66662285783B5003F69B5 /* MinePlist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MinePlist.plist; sourceTree = "<group>"; };
+		7AD66665285785C8003F69B5 /* MineModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineModel.h; sourceTree = "<group>"; };
+		7AD66666285785C8003F69B5 /* MineModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineModel.m; sourceTree = "<group>"; };
 		85BEF231465AE24881C5ECC0 /* Pods_wechat_wechatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wechat_wechatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97595932AE43AD9131BBFE25 /* Pods_wechatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wechatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B341FF9F4E9A793E6A729138 /* Pods-wechat-wechatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat-wechatUITests.release.xcconfig"; path = "Target Support Files/Pods-wechat-wechatUITests/Pods-wechat-wechatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -262,6 +267,8 @@
 		7ABDDB5F284C81ED0079C156 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				7AD66662285783B5003F69B5 /* MinePlist.plist */,
+				7AD66664285785B8003F69B5 /* Model */,
 				7ABDDC5128563A1D0079C156 /* View */,
 				7ABDDC5028563A120079C156 /* Controller */,
 			);
@@ -358,6 +365,15 @@
 				7ABDDC5328563A3A0079C156 /* MineCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7AD66664285785B8003F69B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7AD66665285785C8003F69B5 /* MineModel.h */,
+				7AD66666285785C8003F69B5 /* MineModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C358AB175A9AD0A93445EC56 /* Frameworks */ = {
@@ -480,6 +496,7 @@
 			files = (
 				7AA870B0283DB32C00DAE17B /* LaunchScreen.storyboard in Resources */,
 				7ABDDC44285386570079C156 /* BookPlist.plist in Resources */,
+				7AD66663285783B5003F69B5 /* MinePlist.plist in Resources */,
 				7AA870AD283DB32C00DAE17B /* Assets.xcassets in Resources */,
 				7ABDDC3C285380620079C156 /* MainPlist2.plist in Resources */,
 				7AA870AB283DB32A00DAE17B /* Main.storyboard in Resources */,
@@ -615,6 +632,7 @@
 				7AA870A8283DB32A00DAE17B /* ViewController.m in Sources */,
 				7ABDDC4C285623940079C156 /* FindCell.m in Sources */,
 				7ABDDC5D2857072C0079C156 /* UIView+RoundCorner.m in Sources */,
+				7AD66667285785C8003F69B5 /* MineModel.m in Sources */,
 				7ABDDB5E284C81E10079C156 /* FindVC.m in Sources */,
 				7ABDDC47285386E30079C156 /* BookModel.m in Sources */,
 				7ABDDC382852D4730079C156 /* MainModel.m in Sources */,

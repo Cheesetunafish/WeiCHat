@@ -30,8 +30,6 @@
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"MainPlist2" ofType:@"plist"];
     //2.获取路径
     NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    //3.打印数据
-    NSLog(@"%@", data);
     
     
     //取出每一个字典放入数组

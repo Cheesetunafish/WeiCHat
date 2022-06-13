@@ -33,27 +33,24 @@
     }];
     
     [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.imgView.mas_right).mas_offset(20);
-        make.top.equalTo(self).mas_offset(15);
+        make.left.equalTo(self.imgView.mas_right).mas_offset(15);
+//        make.top.equalTo(self).mas_offset(15);
+        make.centerY.equalTo(self);
         make.width.mas_equalTo(200);
     }];
     
     [self.content mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.title.mas_left);
-        make.top.equalTo(self.title.mas_bottom).mas_offset(10);
+        make.top.equalTo(self.title.mas_bottom).mas_offset(5);
         make.width.mas_equalTo(200);
     }];
 }
 
-//- (void)getWechatNumber:(void(^)(NSString *))block {
-//    block(self.content.text);
-//}
-
 - (UILabel *)title {
     if (_title == nil) {
         _title = [[UILabel alloc] init];
-        _title.font = [UIFont systemFontOfSize:25];
-        _title.backgroundColor = [UIColor systemGrayColor];
+        _title.font = [UIFont systemFontOfSize:20];
+//        _title.backgroundColor = [UIColor systemGrayColor];
     }
     return _title;
 }
@@ -62,7 +59,7 @@
     if (_content == nil) {
         _content = [[UILabel alloc] init];
         _content.textColor = [UIColor systemGrayColor];
-        _content.font = [UIFont systemFontOfSize:20];
+        _content.font = [UIFont systemFontOfSize:17];
 //        _content.backgroundColor = [UIColor systemGrayColor];
     }
     return _content;

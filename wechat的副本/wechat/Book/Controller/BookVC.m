@@ -35,8 +35,7 @@
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"BookPlist" ofType:@"plist"];
     //2.获取路径
     NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    //3.打印数据
-    NSLog(@"%@", data);
+    
     
     //取出每一个字典放入数组
     NSArray *array = data[@"cell"];
@@ -44,8 +43,8 @@
     for (int i = 0; i < 5; i++) {
         //取每一个字典
         NSDictionary *everyDic = array[i];
-        BookModel *mainModel = [[BookModel alloc] initWithDictionary:everyDic];
-        [storyMuteAry addObject:mainModel];
+        BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
+        [storyMuteAry addObject:bookModel];
     }
     self.selfArray1 = storyMuteAry;
     
@@ -55,8 +54,8 @@
     for (int i = 0; i < 3; i++) {
         //取每一个字典
         NSDictionary *everyDic = array2[i];
-        BookModel *mainModel = [[BookModel alloc] initWithDictionary:everyDic];
-        [storyMuteAry2 addObject:mainModel];
+        BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
+        [storyMuteAry2 addObject:bookModel];
     }
     self.selfArray2 = storyMuteAry2;
     
@@ -66,8 +65,8 @@
     for (int i = 0; i < 3; i++) {
         //取每一个字典
         NSDictionary *everyDic = array3[i];
-        BookModel *mainModel = [[BookModel alloc] initWithDictionary:everyDic];
-        [storyMuteAry3 addObject:mainModel];
+        BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
+        [storyMuteAry3 addObject:bookModel];
     }
     self.selfArray3 = storyMuteAry3;
     
@@ -77,8 +76,8 @@
     for (int i = 0; i < 2; i++) {
         //取每一个字典
         NSDictionary *everyDic = array4[i];
-        BookModel *mainModel = [[BookModel alloc] initWithDictionary:everyDic];
-        [storyMuteAry4 addObject:mainModel];
+        BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
+        [storyMuteAry4 addObject:bookModel];
     }
     self.selfArray4 = storyMuteAry4;
     
@@ -88,8 +87,8 @@
     for (int i = 0; i < 1; i++) {
         //取每一个字典
         NSDictionary *everyDic = array5[i];
-        BookModel *mainModel = [[BookModel alloc] initWithDictionary:everyDic];
-        [storyMuteAry5 addObject:mainModel];
+        BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
+        [storyMuteAry5 addObject:bookModel];
     }
     self.selfArray5 = storyMuteAry5;
     
@@ -99,8 +98,8 @@
     for (int i = 0; i < 1; i++) {
         //取每一个字典
         NSDictionary *everyDic = array6[i];
-        BookModel *mainModel = [[BookModel alloc] initWithDictionary:everyDic];
-        [storyMuteAry6 addObject:mainModel];
+        BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
+        [storyMuteAry6 addObject:bookModel];
     }
     self.selfArray6 = storyMuteAry6;
     

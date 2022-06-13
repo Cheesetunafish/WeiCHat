@@ -30,6 +30,11 @@
     [self.view addSubview:self.logBtn];
     self.view.backgroundColor = [UIColor systemGreenColor];
     
+    //保存数据
+//    [NSUserDefaults.standardUserDefaults setObject:self.accountText.text forKey:@"userAccount"];
+    
+    
+    
     //将输入的账户和密码存入可变数组
 //    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
 //    dic[@"userName"] = self.accountText.text;
@@ -114,7 +119,14 @@
         [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"isLoad"];
         MainVC *mainVC = [[MainVC alloc] init];
         [self.navigationController pushViewController:mainVC animated:YES];
-        [NSUserDefaults setValue:@"userAccount" forKey:self.accountText.text];
+        
+        //存名字
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:self.accountText.text forKey:@"userAccount"];
+        //存入磁盘
+        [defaults synchronize];
+        NSString *string = [defaults objectForKey:@"userAccount"];
+        NSLog(@"????????%@",string);
 
     }
     else{   //没点击，no
