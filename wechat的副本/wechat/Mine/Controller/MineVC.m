@@ -8,6 +8,7 @@
 //controller
 #import "MineVC.h"
 #import "LogVC.h"
+#import "ChangeVC.h"
 //view
 #import "MineCell.h"
 //model
@@ -85,6 +86,15 @@
     }
     else
         return 50;
+}
+
+#pragma mark - UITableView点击跳转到头像页面
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        ChangeVC *change = [[ChangeVC alloc] init];
+        [self.navigationController pushViewController:change animated:YES];
+    }
+    
 }
 
 #pragma mark-UITableViewDataSource
