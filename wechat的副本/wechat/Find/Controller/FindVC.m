@@ -15,6 +15,7 @@
 @interface FindVC ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *table;
+@property (nonatomic, strong) BannerView *banner;
 
 @end
 
@@ -23,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.table];
+    [self.view addSubview:self.banner];
     
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
@@ -73,6 +75,14 @@
     return _table;
 }
 
+- (BannerView *)banner {
+    if (_banner == nil) {
+        _banner = [[BannerView alloc] init];
+        _banner.frame = CGRectMake(0, 0, self.view.frame.size.width, 300);
+        _banner.backgroundColor = [UIColor systemBlueColor];
+    }
+    return _banner;
+}
 /*
 #pragma mark - Navigation
 

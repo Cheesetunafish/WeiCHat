@@ -33,6 +33,8 @@
 		7ABDDC4C285623940079C156 /* FindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDDC4B285623940079C156 /* FindCell.m */; };
 		7ABDDC4F2856253F0079C156 /* BannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDDC4E2856253F0079C156 /* BannerView.m */; };
 		7ABDDC5428563A3A0079C156 /* MineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDDC5328563A3A0079C156 /* MineCell.m */; };
+		7ABDDC5A2857001C0079C156 /* MainPic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDDC592857001C0079C156 /* MainPic.xcassets */; };
+		7ABDDC5D2857072C0079C156 /* UIView+RoundCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDDC5C2857072C0079C156 /* UIView+RoundCorner.m */; };
 		7F93F5D82DF62DFDFC6520C5 /* Pods_wechatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97595932AE43AD9131BBFE25 /* Pods_wechatTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +103,9 @@
 		7ABDDC4E2856253F0079C156 /* BannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerView.m; sourceTree = "<group>"; };
 		7ABDDC5228563A3A0079C156 /* MineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCell.h; sourceTree = "<group>"; };
 		7ABDDC5328563A3A0079C156 /* MineCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCell.m; sourceTree = "<group>"; };
+		7ABDDC592857001C0079C156 /* MainPic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MainPic.xcassets; sourceTree = "<group>"; };
+		7ABDDC5B2857072C0079C156 /* UIView+RoundCorner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+RoundCorner.h"; sourceTree = "<group>"; };
+		7ABDDC5C2857072C0079C156 /* UIView+RoundCorner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+RoundCorner.m"; sourceTree = "<group>"; };
 		85BEF231465AE24881C5ECC0 /* Pods_wechat_wechatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wechat_wechatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97595932AE43AD9131BBFE25 /* Pods_wechatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wechatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B341FF9F4E9A793E6A729138 /* Pods-wechat-wechatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat-wechatUITests.release.xcconfig"; path = "Target Support Files/Pods-wechat-wechatUITests/Pods-wechat-wechatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +183,8 @@
 				7AA870A1283DB32A00DAE17B /* AppDelegate.m */,
 				7AA870A6283DB32A00DAE17B /* ViewController.h */,
 				7AA870A7283DB32A00DAE17B /* ViewController.m */,
+				7ABDDC5B2857072C0079C156 /* UIView+RoundCorner.h */,
+				7ABDDC5C2857072C0079C156 /* UIView+RoundCorner.m */,
 				7ABDDB08284C7AB90079C156 /* Log */,
 				7ABDDB07284C7AAA0079C156 /* Main */,
 				7ABDDB57284C81250079C156 /* Book */,
@@ -212,6 +219,7 @@
 		7ABDDB07284C7AAA0079C156 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7ABDDC592857001C0079C156 /* MainPic.xcassets */,
 				7ABDDC3B285380620079C156 /* MainPlist2.plist */,
 				7ABDDBEE2850251D0079C156 /* Model */,
 				7ABDDBEC285024F20079C156 /* View */,
@@ -475,6 +483,7 @@
 				7AA870AD283DB32C00DAE17B /* Assets.xcassets in Resources */,
 				7ABDDC3C285380620079C156 /* MainPlist2.plist in Resources */,
 				7AA870AB283DB32A00DAE17B /* Main.storyboard in Resources */,
+				7ABDDC5A2857001C0079C156 /* MainPic.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +614,7 @@
 				7AA870DA283DDDB500DAE17B /* AccountTool.m in Sources */,
 				7AA870A8283DB32A00DAE17B /* ViewController.m in Sources */,
 				7ABDDC4C285623940079C156 /* FindCell.m in Sources */,
+				7ABDDC5D2857072C0079C156 /* UIView+RoundCorner.m in Sources */,
 				7ABDDB5E284C81E10079C156 /* FindVC.m in Sources */,
 				7ABDDC47285386E30079C156 /* BookModel.m in Sources */,
 				7ABDDC382852D4730079C156 /* MainModel.m in Sources */,

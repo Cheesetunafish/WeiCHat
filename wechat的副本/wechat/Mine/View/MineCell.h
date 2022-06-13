@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *title;
 //内容
 @property (nonatomic, strong) UILabel *content;
+- (void)setPosition;
+
+- (void)getWechatNumber:(void(^)(NSString*))block;
 
 @end
 

@@ -6,6 +6,9 @@
 //
 
 #import "MineCell.h"
+//Tool
+#import "Masonry.h"
+#import "UIView+RoundCorner.h"
 
 @implementation MineCell
 
@@ -15,15 +18,41 @@
         [self.contentView addSubview:self.title];
         [self.contentView addSubview:self.imgView];
         [self.contentView addSubview:self.content];
+        [self setPosition];
     }
     return self;
 }
 
+- (void)setPosition {
+    [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).mas_offset(10);
+        make.top.equalTo(self).mas_offset(10);
+        make.centerY.equalTo(self);
+        make.height.mas_equalTo(self.frame.size.height - 10);
+        make.width.equalTo(self.imgView.mas_height);
+    }];
+    
+    [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.imgView.mas_right).mas_offset(20);
+        make.top.equalTo(self).mas_offset(15);
+        make.width.mas_equalTo(200);
+    }];
+    
+    [self.content mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.title.mas_left);
+        make.top.equalTo(self.title.mas_bottom).mas_offset(10);
+        make.width.mas_equalTo(200);
+    }];
+}
+
+//- (void)getWechatNumber:(void(^)(NSString *))block {
+//    block(self.content.text);
+//}
 
 - (UILabel *)title {
     if (_title == nil) {
         _title = [[UILabel alloc] init];
-        _title.frame = CGRectMake(50, 10, 100, 20);
+        _title.font = [UIFont systemFontOfSize:25];
         _title.backgroundColor = [UIColor systemGrayColor];
     }
     return _title;
@@ -32,7 +61,8 @@
 - (UILabel *)content {
     if (_content == nil) {
         _content = [[UILabel alloc] init];
-        _content.frame = CGRectMake(50, 30, 200, 20);
+        _content.textColor = [UIColor systemGrayColor];
+        _content.font = [UIFont systemFontOfSize:20];
 //        _content.backgroundColor = [UIColor systemGrayColor];
     }
     return _content;
@@ -41,8 +71,8 @@
 - (UIImageView *)imgView {
     if (_imgView == nil) {
         _imgView = [[UIImageView alloc] init];
-        _imgView.frame = CGRectMake(10, 10, 30, 30);
         _imgView.backgroundColor = [UIColor systemGrayColor];
+//        [_imgView applyRoundCorners:UIRectCornerAllCorners radius:15];
     }
     return _imgView;
 }

@@ -12,6 +12,7 @@
 #import "Masonry.h"
 #import "AFNetworking.h"
 
+
 @interface LogVC ()
 
 
@@ -26,32 +27,16 @@
     [self.view addSubview:self.accountLbl];
     [self.view addSubview:self.passwordLbl];
     [self.view addSubview:self.passwordText];
-    
-    
     [self.view addSubview:self.logBtn];
     self.view.backgroundColor = [UIColor systemGreenColor];
     
-//    //密码输入
-//    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(150, 50, 100, 150)];
-//    [self.view addSubview:textField];
-//    textField.placeholder = @"输入密码";
-//    textField.secureTextEntry = YES; //密码保护
-//    textField.font = [UIFont systemFontOfSize:22];
-//
-//    NSUserDefaults *user = [[NSUserDefaults alloc] init];
-//    user
+    //将输入的账户和密码存入可变数组
+//    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//    dic[@"userName"] = self.accountText.text;
+//    dic[@"passWord"] = self.passwordText.text;
+//    NSMutableArray *muteAry = [NSMutableArray array];
+//    [muteAry addObject:dic];
     
-    
-    //判断当前是否第一次进入软件
-//    if([[NSUserDefaults standardUserDefaults] boolForKey:@"hasUsed"] == NO) {
-//            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasUsed"];
-//            [UIApplication sharedApplication].keyWindow.rootViewController = [[LogVC alloc] init];
-//        } else if([[NSUserDefaults standardUserDefaults] boolForKey:@"hasUsed"] == YES){
-//            [self.navigationController popViewControllerAnimated:YES];
-//            if (self.navigationController.navigationBar.isHidden) {
-//                [self.navigationController setNavigationBarHidden:NO animated:YES];
-//            }
-//        }
     
 }
 
@@ -120,15 +105,17 @@
     return _logBtn;
 }
 
+#pragma mark- 方法
 //点击按钮
 - (void)logIn:(UIButton *)btn{
     btn.selected = !btn.selected;
     if (btn.selected == YES) {  //点击存储，yes
         btn.backgroundColor = [UIColor grayColor];
         [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"isLoad"];
-        MainVC *mainVC = [[MainVC alloc] init]; 
-        [self.navigationController pushViewController:mainVC animated:NO];
-        
+        MainVC *mainVC = [[MainVC alloc] init];
+        [self.navigationController pushViewController:mainVC animated:YES];
+        [NSUserDefaults setValue:@"userAccount" forKey:self.accountText.text];
+
     }
     else{   //没点击，no
         btn.backgroundColor = [UIColor orangeColor];
@@ -136,20 +123,18 @@
     }
 }
 
-- (void)getUserDefault {
-    if ([NSUserDefaults.standardUserDefaults boolForKey:@"isLoad"]) {
-//        self.headImgView.image = [UIImage imageNamed:[NSUserDefaults.standardUserDefaults objectForKey:@"headname"]];
-        
-        self.logBtn.selected = YES;
-        self.logBtn.backgroundColor = [UIColor grayColor];
-    }
-    else {
-//        self.headImgView.image = [UIImage imageNamed:@"SSR_default"];
-        
-        self.logBtn.selected = NO;
-        self.logBtn.backgroundColor = [UIColor orangeColor];
-    }
-}
+
+
+//- (void)getUserDefault {
+//    if ([NSUserDefaults.standardUserDefaults boolForKey:@"isLoad"]) {
+//        self.logBtn.selected = YES;
+//        self.logBtn.backgroundColor = [UIColor grayColor];
+//    }
+//    else {
+//        self.logBtn.selected = NO;
+//        self.logBtn.backgroundColor = [UIColor orangeColor];
+//    }
+//}
 
 /*
 #pragma mark - Navigation

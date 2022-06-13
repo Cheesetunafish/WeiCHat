@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *content;
 //cell时间
 //@property (nonatomic, strong) UILabel *time;
+- (void)setPosition;
 
 @end
 

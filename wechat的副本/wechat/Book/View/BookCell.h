@@ -10,10 +10,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BookCell : UITableViewCell
-
+//图片
 @property (nonatomic, strong) UIImageView *imgView;
-
+//名称
 @property (nonatomic, strong) UILabel *title;
+
+- (void)setPosition;
 
 @end
 

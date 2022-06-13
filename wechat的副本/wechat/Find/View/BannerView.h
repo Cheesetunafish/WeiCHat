@@ -10,11 +10,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BannerView : UIView
-
+//图片
 @property (nonatomic, strong) UIImageView *bannerImg;
+//用户头像
 @property (nonatomic, strong) UIImageView *userImg;
+//用户名称
 @property (nonatomic, strong) UILabel *userName;
 
+- (void)setPosition;
 
 @end
 

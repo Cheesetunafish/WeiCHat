@@ -27,8 +27,9 @@
     [self.view addSubview:self.table];
     [self.view addSubview:self.Btn];
     
-    
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -73,7 +74,10 @@
     }
     if (indexPath.section == 0) {
         cell.title.text = @"userName";
-        cell.content.text = @"userWechat";
+        //灰色微信号
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *userAccount = [userDefaults objectForKey:@"userAccount"];
+        cell.content.text = userAccount;
     }
     else
         cell.title.text = @"text";
