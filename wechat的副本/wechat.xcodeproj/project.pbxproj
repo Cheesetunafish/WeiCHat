@@ -38,6 +38,10 @@
 		7AD66663285783B5003F69B5 /* MinePlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AD66662285783B5003F69B5 /* MinePlist.plist */; };
 		7AD66667285785C8003F69B5 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD66666285785C8003F69B5 /* MineModel.m */; };
 		7AD6666A28578BB4003F69B5 /* ChangeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6666928578BB4003F69B5 /* ChangeVC.m */; };
+		7AD6666D28582DF6003F69B5 /* TopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6666C28582DF6003F69B5 /* TopView.m */; };
+		7AD6666F28583046003F69B5 /* FindPic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6666E28583046003F69B5 /* FindPic.xcassets */; };
+		7AD666712858D52F003F69B5 /* FindList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AD666702858D52F003F69B5 /* FindList.plist */; };
+		7AD6667428597A75003F69B5 /* FindPostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6667328597A75003F69B5 /* FindPostVC.m */; };
 		7F93F5D82DF62DFDFC6520C5 /* Pods_wechatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97595932AE43AD9131BBFE25 /* Pods_wechatTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +118,12 @@
 		7AD66666285785C8003F69B5 /* MineModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineModel.m; sourceTree = "<group>"; };
 		7AD6666828578BB4003F69B5 /* ChangeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeVC.h; sourceTree = "<group>"; };
 		7AD6666928578BB4003F69B5 /* ChangeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeVC.m; sourceTree = "<group>"; };
+		7AD6666B28582DF6003F69B5 /* TopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopView.h; sourceTree = "<group>"; };
+		7AD6666C28582DF6003F69B5 /* TopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopView.m; sourceTree = "<group>"; };
+		7AD6666E28583046003F69B5 /* FindPic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FindPic.xcassets; sourceTree = "<group>"; };
+		7AD666702858D52F003F69B5 /* FindList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FindList.plist; sourceTree = "<group>"; };
+		7AD6667228597A75003F69B5 /* FindPostVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindPostVC.h; sourceTree = "<group>"; };
+		7AD6667328597A75003F69B5 /* FindPostVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindPostVC.m; sourceTree = "<group>"; };
 		85BEF231465AE24881C5ECC0 /* Pods_wechat_wechatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wechat_wechatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97595932AE43AD9131BBFE25 /* Pods_wechatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wechatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B341FF9F4E9A793E6A729138 /* Pods-wechat-wechatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat-wechatUITests.release.xcconfig"; path = "Target Support Files/Pods-wechat-wechatUITests/Pods-wechat-wechatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -261,6 +271,8 @@
 		7ABDDB5B284C81CA0079C156 /* Find */ = {
 			isa = PBXGroup;
 			children = (
+				7AD666702858D52F003F69B5 /* FindList.plist */,
+				7AD6666E28583046003F69B5 /* FindPic.xcassets */,
 				7ABDDC49285623690079C156 /* View */,
 				7ABDDC482856235E0079C156 /* Controller */,
 			);
@@ -337,6 +349,8 @@
 			children = (
 				7ABDDB5C284C81E10079C156 /* FindVC.h */,
 				7ABDDB5D284C81E10079C156 /* FindVC.m */,
+				7AD6667228597A75003F69B5 /* FindPostVC.h */,
+				7AD6667328597A75003F69B5 /* FindPostVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -348,6 +362,8 @@
 				7ABDDC4B285623940079C156 /* FindCell.m */,
 				7ABDDC4D2856253F0079C156 /* BannerView.h */,
 				7ABDDC4E2856253F0079C156 /* BannerView.m */,
+				7AD6666B28582DF6003F69B5 /* TopView.h */,
+				7AD6666C28582DF6003F69B5 /* TopView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -500,8 +516,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AA870B0283DB32C00DAE17B /* LaunchScreen.storyboard in Resources */,
+				7AD6666F28583046003F69B5 /* FindPic.xcassets in Resources */,
 				7ABDDC44285386570079C156 /* BookPlist.plist in Resources */,
 				7AD66663285783B5003F69B5 /* MinePlist.plist in Resources */,
+				7AD666712858D52F003F69B5 /* FindList.plist in Resources */,
 				7AA870AD283DB32C00DAE17B /* Assets.xcassets in Resources */,
 				7ABDDC3C285380620079C156 /* MainPlist2.plist in Resources */,
 				7AA870AB283DB32A00DAE17B /* Main.storyboard in Resources */,
@@ -639,6 +657,7 @@
 				7ABDDC5D2857072C0079C156 /* UIView+RoundCorner.m in Sources */,
 				7AD6666A28578BB4003F69B5 /* ChangeVC.m in Sources */,
 				7AD66667285785C8003F69B5 /* MineModel.m in Sources */,
+				7AD6666D28582DF6003F69B5 /* TopView.m in Sources */,
 				7ABDDB5E284C81E10079C156 /* FindVC.m in Sources */,
 				7ABDDC47285386E30079C156 /* BookModel.m in Sources */,
 				7ABDDC382852D4730079C156 /* MainModel.m in Sources */,
@@ -646,6 +665,7 @@
 				7ABDDB5A284C81640079C156 /* BookVC.m in Sources */,
 				7ABDDC4F2856253F0079C156 /* BannerView.m in Sources */,
 				7ABDDB52284C7D280079C156 /* MainCell.m in Sources */,
+				7AD6667428597A75003F69B5 /* FindPostVC.m in Sources */,
 				7AA870A2283DB32A00DAE17B /* AppDelegate.m in Sources */,
 				7ABDDB62284C81FE0079C156 /* MineVC.m in Sources */,
 				7ABDDB06284C7A9F0079C156 /* MainVC.m in Sources */,
