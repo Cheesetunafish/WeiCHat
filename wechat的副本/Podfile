@@ -8,6 +8,7 @@ target 'wechat' do
   # Pods for wechat
 	pod 'AFNetworking'
 	pod 'Masonry'
+	pod 'SDAutoLayout'
   target 'wechatTests' do
     inherit! :search_paths
     # Pods for testing

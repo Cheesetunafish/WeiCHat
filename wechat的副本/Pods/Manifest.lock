@@ -15,20 +15,24 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Masonry (1.1.0)
+  - SDAutoLayout (2.2.1)
 
 DEPENDENCIES:
   - AFNetworking
   - Masonry
+  - SDAutoLayout
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - Masonry
+    - SDAutoLayout
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
 
-PODFILE CHECKSUM: 53045345bd93e9f033e284a55b01ee3090698f0e
+PODFILE CHECKSUM: efdca2c1ff3c5d7e6dbfa40006a06f1c3fee7e82
 
 COCOAPODS: 1.11.2
