@@ -19,7 +19,7 @@
 @interface MineVC ()<UITableViewDelegate, UITableViewDataSource>
 
 //table
-@property (nonatomic, strong) UITableView *table;
+//@property (nonatomic, strong) UITableView *table;
 //退出按钮
 @property (nonatomic, strong) UIButton *Btn;
 @property (nonatomic, copy) NSMutableArray *selfArray1;
@@ -132,6 +132,7 @@
         //灰色微信号
         NSString *cnt = [NSUserDefaults.standardUserDefaults objectForKey:@"userAccount"];
         cell.content.text = [NSString stringWithFormat:@"微信号：%@",cnt];
+        cell.imageView.image = [UIImage imageNamed:model.image];
     }
     else if (indexPath.section == 1) {
         MineModel *model = self.selfArray2[indexPath.row];

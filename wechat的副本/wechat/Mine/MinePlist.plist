@@ -35,7 +35,7 @@
 			<key>title</key>
 			<string>服务</string>
 			<key>image</key>
-			<string>image1</string>
+			<string></string>
 		</dict>
 	</array>
 	<key>0</key>
@@ -44,7 +44,7 @@
 			<key>title</key>
 			<string>小艾同学在轨道</string>
 			<key>image</key>
-			<string>image0</string>
+			<string>myImg</string>
 		</dict>
 	</array>
 </dict>

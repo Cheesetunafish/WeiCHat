@@ -26,14 +26,16 @@
 - (void)setPosition {
     [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).mas_offset(10);
-        make.top.equalTo(self).mas_offset(10);
+        make.top.equalTo(self).mas_offset(20);
         make.centerY.equalTo(self);
         make.height.mas_equalTo(self.frame.size.height - 10);
         make.width.equalTo(self.imgView.mas_height);
+//        make.height.mas_equalTo(90);
+        
     }];
     
     [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.imgView.mas_right).mas_offset(15);
+        make.left.equalTo(self.imgView.mas_right).mas_offset(65);
 //        make.top.equalTo(self).mas_offset(15);
         make.centerY.equalTo(self);
         make.width.mas_equalTo(200);
@@ -68,7 +70,9 @@
 - (UIImageView *)imgView {
     if (_imgView == nil) {
         _imgView = [[UIImageView alloc] init];
-        _imgView.backgroundColor = [UIColor systemGrayColor];
+        _imgView.clipsToBounds = YES;
+//        _imgView.backgroundColor = [UIColor systemGrayColor];
+        
 //        [_imgView applyRoundCorners:UIRectCornerAllCorners radius:15];
     }
     return _imgView;

@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MineVC : UIViewController
-
+@property (nonatomic, strong) UITableView *table;
 @end
 
 NS_ASSUME_NONNULL_END

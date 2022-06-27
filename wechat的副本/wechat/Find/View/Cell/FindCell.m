@@ -35,6 +35,9 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
 //        [self.contentView addSubview:self.likeBtn];
 //        [self.contentView addSubview:self.commentBtn];
         [self Position];
+        //  高度自适应
+        [super layoutSubviews];
+        [self.content sizeToFit];
     }
     return self;
 }
@@ -45,8 +48,7 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
 - (UILabel *)title {
     if (_title == nil) {
         _title = [[UILabel alloc] init];
-        _title.backgroundColor = [UIColor systemGray6Color];
-        _title.textColor = [UIColor systemBlueColor];
+        _title.textColor = [UIColor blueColor];
     }
     return _title;
 }
@@ -54,7 +56,6 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
 - (UIImageView *)imgView {
     if (_imgView == nil) {
         _imgView = [[UIImageView alloc] init];
-        _imgView.backgroundColor = [UIColor systemGrayColor];
     }
     return _imgView;
 }
@@ -63,7 +64,7 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
     if (_content == nil) {
         _content = [[UILabel alloc] init];
         _content.numberOfLines = 0;
-//        _content.backgroundColor = [UIColor systemGrayColor];
+        [_content sizeToFit];   // 高度自适应
     }
     return _content;
 }
@@ -114,10 +115,10 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
 - (void)Position {
     // Masonry
     [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).mas_offset(20);
+        make.left.equalTo(self).mas_offset(15);
         make.top.equalTo(self).mas_offset(20);
-        make.width.mas_equalTo(40);
-        make.height.mas_equalTo(40);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
     }];
     
     [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -164,7 +165,7 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
             _content.sd_layout.maxHeightIs(MAXFLOAT);
             [_moreBtn setTitle:@"收起" forState:UIControlStateNormal];
         }
-        else {
+        else {  // 没有展开
             _content.sd_layout.maxHeightIs(maxContentLabelHeight);
             [_moreBtn setTitle:@"全文" forState:UIControlStateNormal];
         }
@@ -180,8 +181,8 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
 
 - (void)moreButtonClicked {
     if (self.moreButtonClickedBlock) {
-        
         self.moreButtonClickedBlock(self.indexPath);
+        NSLog(@"FindCell中的按钮点击方法实行%@",self.indexPath);
     }
 }
 

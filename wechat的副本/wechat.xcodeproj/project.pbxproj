@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		030A6EEF70ED2CDD2FE6E756 /* Pods_wechat_wechatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85BEF231465AE24881C5ECC0 /* Pods_wechat_wechatUITests.framework */; };
 		767CE9C3020E442D186192EF /* Pods_wechat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D7A64D828930C902C81678 /* Pods_wechat.framework */; };
+		7A5EC4E228685319004F1A7D /* BannerPic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5EC4E128685319004F1A7D /* BannerPic.xcassets */; };
+		7A5EC4E428685B9E004F1A7D /* BookPic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5EC4E328685B9E004F1A7D /* BookPic.xcassets */; };
+		7A5EC4E628685C05004F1A7D /* MinePic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5EC4E528685C05004F1A7D /* MinePic.xcassets */; };
 		7AA870A2283DB32A00DAE17B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA870A1283DB32A00DAE17B /* AppDelegate.m */; };
 		7AA870A8283DB32A00DAE17B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA870A7283DB32A00DAE17B /* ViewController.m */; };
 		7AA870AB283DB32A00DAE17B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA870A9283DB32A00DAE17B /* Main.storyboard */; };
@@ -71,6 +74,9 @@
 		38D7A64D828930C902C81678 /* Pods_wechat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wechat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41359968C4729E2B042A9690 /* Pods-wechat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat.release.xcconfig"; path = "Target Support Files/Pods-wechat/Pods-wechat.release.xcconfig"; sourceTree = "<group>"; };
 		5F743E99C48343CF3861F9DF /* Pods-wechat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat.debug.xcconfig"; path = "Target Support Files/Pods-wechat/Pods-wechat.debug.xcconfig"; sourceTree = "<group>"; };
+		7A5EC4E128685319004F1A7D /* BannerPic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BannerPic.xcassets; sourceTree = "<group>"; };
+		7A5EC4E328685B9E004F1A7D /* BookPic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BookPic.xcassets; sourceTree = "<group>"; };
+		7A5EC4E528685C05004F1A7D /* MinePic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MinePic.xcassets; sourceTree = "<group>"; };
 		7AA8709D283DB32A00DAE17B /* wechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AA870A0283DB32A00DAE17B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AA870A1283DB32A00DAE17B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -273,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				7ABDDC43285386570079C156 /* BookPlist.plist */,
+				7A5EC4E328685B9E004F1A7D /* BookPic.xcassets */,
 				7ABDDBF1285025370079C156 /* Model */,
 				7ABDDBF0285025310079C156 /* View */,
 				7ABDDBEF285025220079C156 /* Controller */,
@@ -296,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				7AD66662285783B5003F69B5 /* MinePlist.plist */,
+				7A5EC4E528685C05004F1A7D /* MinePic.xcassets */,
 				7AD66664285785B8003F69B5 /* Model */,
 				7ABDDC5128563A1D0079C156 /* View */,
 				7ABDDC5028563A120079C156 /* Controller */,
@@ -430,6 +438,7 @@
 		7AD6670828605153003F69B5 /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
+				7A5EC4E128685319004F1A7D /* BannerPic.xcassets */,
 				7ABDDC4D2856253F0079C156 /* BannerView.h */,
 				7ABDDC4E2856253F0079C156 /* BannerView.m */,
 				7AD6666B28582DF6003F69B5 /* TopView.h */,
@@ -583,15 +592,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A5EC4E228685319004F1A7D /* BannerPic.xcassets in Resources */,
 				7AA870B0283DB32C00DAE17B /* LaunchScreen.storyboard in Resources */,
 				7AD6666F28583046003F69B5 /* FindPic.xcassets in Resources */,
 				7ABDDC44285386570079C156 /* BookPlist.plist in Resources */,
 				7AD66663285783B5003F69B5 /* MinePlist.plist in Resources */,
+				7A5EC4E628685C05004F1A7D /* MinePic.xcassets in Resources */,
 				7AD666712858D52F003F69B5 /* FindList.plist in Resources */,
 				7AA870AD283DB32C00DAE17B /* Assets.xcassets in Resources */,
 				7ABDDC3C285380620079C156 /* MainPlist2.plist in Resources */,
 				7AA870AB283DB32A00DAE17B /* Main.storyboard in Resources */,
 				7ABDDC5A2857001C0079C156 /* MainPic.xcassets in Resources */,
+				7A5EC4E428685B9E004F1A7D /* BookPic.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

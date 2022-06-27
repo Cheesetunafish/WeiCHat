@@ -5,18 +5,19 @@
 //  Created by 小艾同学 on 2022/6/5.
 //
 
-//Controller
+// Controller
 #import "FindVC.h"
 #import "FindPostVC.h"
-//View
+// View
 #import "FindCell.h"
 #import "BannerView.h"
 #import "TopView.h"
-//model
+// model
 #import "CellModel.h"
+// tool
+#import "SDAutoLayout.h"
 
-
-@interface FindVC ()<UITableViewDelegate, UITableViewDataSource>
+@interface FindVC ()<UITableViewDelegate,UITableViewDataSource,SDTimeLineCellDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) UITableView *table;
 @property (nonatomic, strong) BannerView *banner;
@@ -75,15 +76,25 @@
 #pragma mark-UITableViewDelegate
 //行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-//    if (self.cell.contentImg.image == nil) {
-//        return 100;
-//    }
-//    else{
-//        return 200;
-//    }
+    
+//     2.计算
+//    CellModel *model = self.dataArray[indexPath.row];
+//    NSString *content = model.msgContent;
+//
+//    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:12.0]};
+//
+//    CGRect contentRect = [content boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, CGFLOAT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin) attributes:dic context:nil];
+//    CGFloat contentHeight;
+//    contentHeight = ceilf(contentRect.size.height);
+//
+//    return contentHeight + 150;
     return 200;
 }
+- (CGFloat)cellContentViewWith {
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    return width;
+}
+
 
 #pragma mark-UITableViewDataSource
 //cell组数
@@ -92,39 +103,41 @@
 }
 //cell行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 13;
+    return self.dataArray.count;
 }
 
 //cell内容 自定义
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identify = @"cell";
     FindCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
-    cell.indexPath = indexPath;
-    __weak typeof(self) weakSelf = self;
-    CellModel *model = weakSelf.dataArray[indexPath.row];
     if (cell == nil) {
         cell = [[FindCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
     }
+    // 设置数据
+    cell.model = self.dataArray[indexPath.row];
     
-        
+    
+    cell.indexPath = indexPath;
+    NSLog(@"\\内容自定义%@\\",cell.indexPath);
+    
+    __weak typeof(self) weakSelf = self;
+    CellModel *model = weakSelf.dataArray[indexPath.row];
+    
+    
     if (!cell.moreButtonClickedBlock) {
         [cell setMoreButtonClickedBlock:^(NSIndexPath *indexPath) {
-            
+            //手动反一次open状态
             model.isOpening = !model.isOpening;
-            [weakSelf.table reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            NSLog(@"%d",model.isOpening);
             
+            NSLog(@"FindVC中的block实行%@",indexPath);
+            // 重新加载cell
+            [weakSelf.table reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }];
     }
     
-    // 设置数据
-    cell.model = self.dataArray[indexPath.row];
-//    cell.content.text = @"我早上全款买下的牛肉饼饼在路上掉了，我一口没吃着我早上全款买下的牛肉饼饼在路上掉了，我一口没吃着";
-//    cell.title.text = @"何克宇";
-//    cell.content.text = @"学姐超厉害，任何人不看这篇我都会难过的OK？";
     
-//    cell.contentImg.image = [UIImage imageNamed:@"iShot2022-06-16_21.53.34"];
-
-    
+    self.cell = cell;
     return cell;
 }
 

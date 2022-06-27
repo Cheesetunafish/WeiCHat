@@ -5,6 +5,8 @@
 //  Created by 小艾同学 on 2022/6/13.
 //
 
+
+
 #import "ChangeVC.h"
 #import "MineModel.h"
 #import "Masonry.h"
@@ -51,6 +53,7 @@
         _imgView.image = [UIImage imageNamed:self.selfArray[1]];
         _imgView.backgroundColor = [UIColor systemGrayColor];
         
+        _imgView.image = [UIImage imageNamed:@"myImg"];
         
     }
     return _imgView;

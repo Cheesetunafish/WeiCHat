@@ -45,7 +45,8 @@
 - (UIImageView *)bannerImg {
     if (_bannerImg == nil) {
         _bannerImg = [[UIImageView alloc] init];
-        _bannerImg.backgroundColor = [UIColor systemGray3Color];
+//        _bannerImg.backgroundColor = [UIColor systemGray3Color];
+        _bannerImg.image = [UIImage imageNamed:@"banner"];
     }
     return _bannerImg;
 }
@@ -53,7 +54,8 @@
 - (UIImageView *)userImg {
     if (_userImg == nil) {
         _userImg = [[UIImageView alloc] init];
-        _userImg.backgroundColor = [UIColor systemGrayColor];
+//        _userImg.backgroundColor = [UIColor systemGrayColor];
+        _userImg.image = [UIImage imageNamed:@"userImg"];
     }
     return _userImg;
 }
@@ -61,8 +63,9 @@
 - (UILabel *)userName {
     if (_userName == nil) {
         _userName = [[UILabel alloc] init];
-        _userName.text = @"dafsdddddddddddd";
-        _userName.font = [UIFont systemFontOfSize:20];
+        _userName.text = @"小艾同学在轨道";
+        _userName.textColor = [UIColor whiteColor];
+        _userName.font = [UIFont boldSystemFontOfSize:20];
     }
     return _userName;
 }

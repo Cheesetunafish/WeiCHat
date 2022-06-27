@@ -14,9 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol SDTimeLineCellDelegate <NSObject>
 
-// 点击cell按钮
+// 点击like按钮
 - (void)didClickLikeButtonInCell:(UITableViewCell *)cell;
-// 索引点击
+// 点击comment按钮
 - (void)didClickcCommentButtonInCell:(UITableViewCell *)cell with:(NSIndexPath *)indexPath;
 
 @end
