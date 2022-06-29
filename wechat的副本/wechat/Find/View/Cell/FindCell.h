@@ -50,16 +50,16 @@ NS_ASSUME_NONNULL_BEGIN
 // 按钮
 @property (nonatomic, strong) UIButton *moreBtn;    // 展开折叠文字内容
 // 操作按钮
-@property (nonatomic, strong) MenuView *operationButton;    // 展开点赞和评论按钮
+@property (nonatomic, strong) UIButton *operationButton;    // 展开点赞和评论按钮
 @property (nonatomic, strong) CommentView *commentView;
 // like
-@property (nonatomic, strong) UIButton *likeButton;
+@property (nonatomic, strong) UIButton *likeButton; // 点赞按钮
 // comment
-@property (nonatomic, strong) UIButton *commentButton;
+@property (nonatomic, strong) UIButton *commentButton;  // 评论按钮
 
 
 - (void)Position;
-//- (void)moreButtonClicked;
+- (void)moreButtonClicked;
 
 @end
 

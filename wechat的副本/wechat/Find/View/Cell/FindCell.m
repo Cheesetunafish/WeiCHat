@@ -77,7 +77,7 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
 //    return _contentImg;
 //}
 
-// 按钮
+// 点赞按钮
 //- (UIButton *)likeBtn {
 //    if (_likeBtn == nil) {
 //        _likeBtn = [[UIButton alloc] init];
@@ -86,19 +86,20 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
 //    return _likeBtn;
 //}
 
+// 评论View
 - (CommentView *)commentView {
     if (_commentView == nil) {
         __weak typeof(self) weakSelf = self;
         _commentView = [CommentView new];
         [_commentView setDidClickCommentLabelBlock:^(NSString * _Nonnull commentId, CGRect rectInWindow) {
-                    NSLog(@"commentView setDidClickCommentLabel");
+                    NSLog(@"设置了commentView，点击commentlabelblock");
             weakSelf.didClickCommentLabelBlock(commentId, rectInWindow, weakSelf.indexPath);
         }];
     }
     return _commentView;
 }
 
-// 展开全文按钮
+// moreBtn展开全文按钮
 - (UIButton *)moreBtn {
     if (_moreBtn == nil) {
         _moreBtn = [[UIButton alloc] init];
@@ -110,8 +111,19 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
     return _moreBtn;
 }
 
+// 操作菜单按钮
+- (UIButton *)operationButton {
+    if (_operationButton == nil) {
+        _operationButton = [[UIButton alloc] init];
+        [_operationButton setImage:[UIImage imageNamed:@"AlbumOperateMore"] forState:UIControlStateNormal];
+        
+        [_operationButton addTarget:self action:@selector(operationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _operationButton;
+}
 
 
+// 布局
 - (void)Position {
     // Masonry
     [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -182,7 +194,7 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
 - (void)moreButtonClicked {
     if (self.moreButtonClickedBlock) {
         self.moreButtonClickedBlock(self.indexPath);
-        NSLog(@"FindCell中的按钮点击方法实行%@",self.indexPath);
+//        NSLog(@"FindCell中的按钮点击方法执行完毕%@",self.indexPath);
     }
 }
 

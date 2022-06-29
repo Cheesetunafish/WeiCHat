@@ -11,6 +11,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MenuView : UIView
 
+// 判断显示状态
+@property (nonatomic, assign, getter=isShowing) BOOL show;
+
+// 点击点赞按钮block
+@property (nonatomic, copy) void(^likeButtonClickedOperation)(void);
+// 点击评论按钮block
+@property (nonatomic, copy) void(^commentButtonClickedOperation)(void);
+
+// 点赞按钮
+@property (nonatomic, strong) UIButton *likeButton;
+// 评论按钮
+@property (nonatomic, strong) UIButton *commentButton;
+
 @end
 
 NS_ASSUME_NONNULL_END

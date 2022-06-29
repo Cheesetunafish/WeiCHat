@@ -1,15 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "iShot2022-06-16_21.53.34.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "AlbumOperateMore@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "AlbumOperateMore@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

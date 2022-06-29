@@ -57,7 +57,7 @@
     
     
     
-    
+    // 相机
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"相机" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemAction:)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:[[UILabel alloc]initWithFrame:CGRectMake(0, 5, 60, 30)]];
      self.navigationItem.rightBarButtonItem = rightBarButtonItem;
@@ -67,84 +67,76 @@
     // Do any additional setup after loading the view.
 }
 
-//相机界面跳转
+// 相机界面跳转
 -(void)rightBarButtonItemAction:(id)sender{
     FindPostVC *post = [[FindPostVC alloc]init];
     [self.navigationController pushViewController:post animated:YES];
 }
 
 #pragma mark-UITableViewDelegate
-//行高
+// 行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//     2.计算
-//    CellModel *model = self.dataArray[indexPath.row];
-//    NSString *content = model.msgContent;
-//
-//    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:12.0]};
-//
-//    CGRect contentRect = [content boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, CGFLOAT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin) attributes:dic context:nil];
-//    CGFloat contentHeight;
-//    contentHeight = ceilf(contentRect.size.height);
-//
-//    return contentHeight + 150;
-    return 200;
-}
-- (CGFloat)cellContentViewWith {
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    return width;
-}
+//     2.计算高度
+    CellModel *model = self.dataArray[indexPath.row];
+    NSString *content = model.msgContent;
 
+    CGFloat contentW = [UIScreen mainScreen].bounds.size.width - 20;
+    
+    CGRect textRect = [content boundingRectWithSize:CGSizeMake(contentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil];
+    CGFloat contentHeight;
+    
+    contentHeight = ceilf(textRect.size.height);
+
+    return contentHeight + 100;
+//    return 200;
+    
+}
 
 #pragma mark-UITableViewDataSource
-//cell组数
+// cell组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
-//cell行数
+// cell行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataArray.count;
 }
 
-//cell内容 自定义
+// cell内容 自定义
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identify = @"cell";
     FindCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (cell == nil) {
         cell = [[FindCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
-    }
-    // 设置数据
-    cell.model = self.dataArray[indexPath.row];
-    
+    }  
     
     cell.indexPath = indexPath;
     NSLog(@"\\内容自定义%@\\",cell.indexPath);
     
     __weak typeof(self) weakSelf = self;
-    CellModel *model = weakSelf.dataArray[indexPath.row];
-    
-    
     if (!cell.moreButtonClickedBlock) {
         [cell setMoreButtonClickedBlock:^(NSIndexPath *indexPath) {
-            //手动反一次open状态
+            CellModel *model = weakSelf.dataArray[indexPath.row];
+            // 手动反一次open状态
             model.isOpening = !model.isOpening;
             NSLog(@"%d",model.isOpening);
             
-            NSLog(@"FindVC中的block实行%@",indexPath);
+            NSLog(@"FindVC中的block实行!!%@",indexPath);
             // 重新加载cell
             [weakSelf.table reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }];
     }
-    
-    
-    self.cell = cell;
+
+    // 设置数据
+    cell.model = self.dataArray[indexPath.row];
     return cell;
 }
 
 #pragma mark- 懒加载
 - (UITableView *)table{
     if (!_table) {
-        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];//屏幕大小
+        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];// 屏幕大小
         _table.delegate = self;
         _table.dataSource = self;
     }
