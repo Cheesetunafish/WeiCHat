@@ -28,22 +28,24 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"个人头像";
     
-    //读取plist
-    //1.创建路径（maybe
+    
+    // 取第一个头像
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"MinePlist" ofType:@"plist"];
-    //2.获取路径
+    
     NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     
-    //取出每一个字典放入数组
     NSArray *array0 = data[@"0"];
     NSMutableArray *storyMuteAry0 = [NSMutableArray array];
     for (int i = 0; i < 1; i++) {
-        //取每一个字典
         NSDictionary *everyDic = array0[i];
         MineModel *mineModel = [[MineModel alloc] initWithDictionary:everyDic];
         [storyMuteAry0 addObject:mineModel];
     }
     self.selfArray = storyMuteAry0;
+    
+    MineModel *model = [MineModel new];
+    model = self.selfArray[0];
+    self.imgView.image = [UIImage imageNamed:model.image];
 }
 
 
@@ -52,8 +54,7 @@
         _imgView = [[UIImageView alloc] init];
         _imgView.image = [UIImage imageNamed:self.selfArray[1]];
         _imgView.backgroundColor = [UIColor systemGrayColor];
-        
-        _imgView.image = [UIImage imageNamed:@"myImg"];
+//        _imgView.image = [UIImage imageNamed:@"myImg"];
         
     }
     return _imgView;

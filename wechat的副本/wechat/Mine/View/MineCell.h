@@ -17,9 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *title;
 //内容
 @property (nonatomic, strong) UILabel *content;
+
+@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, copy) void (^getNewImageBlock)(NSIndexPath *indexPath);
+
 - (void)setPosition;
 
-- (void)getWechatNumber:(void(^)(NSString*))block;
+- (void)getNewImage;
 
 @end
 

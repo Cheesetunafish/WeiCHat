@@ -33,10 +33,9 @@
     //页面控制
     MainVC *mainVC = [[MainVC alloc] init];
     mainVC.title = @"微信";
-    
-//    MainVC.tabBarItem.image = [UIImage imageNamed:@"1"];
-//    UITabBarItem *conversTabBarItem = [[UITabBarItem alloc]initWithTitle:@"首页" image:[[UIImage imageNamed:@"1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"3"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-//    MainVC.tabBarItem = conversTabBarItem;
+    mainVC.tabBarItem.title = @"微信";
+    mainVC.tabBarItem.image = [UIImage systemImageNamed:@"message"];
+    mainVC.tabBarItem.selectedImage = [UIImage systemImageNamed:@"message.fill"];
     
     UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:mainVC];
     mainNav.navigationBar.translucent = YES;
@@ -45,7 +44,9 @@
     BookVC *bookVC = [[BookVC alloc] init];
     bookVC.title = @"通讯录";
     bookVC.tabBarItem.title = @"通讯录";
-//    mineVC.tabBarItem.image = [UIImage imageNamed:@"2"];
+    bookVC.tabBarItem.image = [UIImage systemImageNamed:@"person.3"];
+    bookVC.tabBarItem.selectedImage = [UIImage systemImageNamed:@"person.3.fill"];
+    
     UINavigationController *bookNav = [[UINavigationController alloc] initWithRootViewController:bookVC];
     bookNav.navigationBar.translucent = YES;
     
@@ -53,7 +54,8 @@
     FindVC *findVC = [[FindVC alloc] init];
     findVC.title = @"朋友圈";
     findVC.tabBarItem.title = @"发现";
-//    findVC.tabBarItem.image = [UIImage imageNamed:@"2"];
+    findVC.tabBarItem.image = [UIImage systemImageNamed:@"safari"];
+    findVC.tabBarItem.selectedImage = [UIImage systemImageNamed:@"safari.fill"];
     UINavigationController *findNav = [[UINavigationController alloc] initWithRootViewController:findVC];
 
     findNav.navigationBar.translucent = YES;
@@ -62,7 +64,8 @@
     MineVC *mineVC = [[MineVC alloc] init];
     mineVC.title = @"我";
     mineVC.tabBarItem.title = @"我";
-//    mineVC.tabBarItem.image = [UIImage imageNamed:@"2"];
+    mineVC.tabBarItem.image = [UIImage systemImageNamed:@"person"];
+    mineVC.tabBarItem.selectedImage = [UIImage systemImageNamed:@"person.fill"];
     UINavigationController *mineNav = [[UINavigationController alloc] initWithRootViewController:mineVC];
     mineNav.navigationBar.translucent = YES;
     
@@ -74,7 +77,7 @@
     [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
     
     
-    //设置多个Tab的ViewController到TabBarViewController
+    // 设置多个Tab的ViewController到TabBarViewController
     tabBarVC.viewControllers = vcsArray;
     
     //4、将UITabBarController设置为Window的RootViewController

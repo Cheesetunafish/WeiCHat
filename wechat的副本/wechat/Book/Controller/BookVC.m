@@ -40,7 +40,7 @@
     //取出每一个字典放入数组
     NSArray *array = data[@"cell"];
     NSMutableArray *storyMuteAry = [NSMutableArray array];
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 4; i++) {
         //取每一个字典
         NSDictionary *everyDic = array[i];
         BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
@@ -169,7 +169,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
         case 0:
-            return 5;
+            return 4;
             break;
         case 1://a
             return 3;

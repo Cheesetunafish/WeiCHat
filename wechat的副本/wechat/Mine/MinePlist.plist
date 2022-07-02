@@ -8,25 +8,25 @@
 			<key>title</key>
 			<string>收藏</string>
 			<key>image</key>
-			<string></string>
+			<string>collect</string>
 		</dict>
 		<dict>
 			<key>title</key>
 			<string>朋友圈</string>
 			<key>image</key>
-			<string></string>
+			<string>find</string>
 		</dict>
 		<dict>
 			<key>title</key>
 			<string>卡包</string>
 			<key>image</key>
-			<string></string>
+			<string>cardBag</string>
 		</dict>
 		<dict>
 			<key>title</key>
 			<string>表情</string>
 			<key>image</key>
-			<string></string>
+			<string>expression</string>
 		</dict>
 	</array>
 	<key>1</key>
@@ -35,7 +35,7 @@
 			<key>title</key>
 			<string>服务</string>
 			<key>image</key>
-			<string></string>
+			<string>service</string>
 		</dict>
 	</array>
 	<key>0</key>

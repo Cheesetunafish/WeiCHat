@@ -11,20 +11,20 @@
 #import "ChangeVC.h"
 //view
 #import "MineCell.h"
+#import "MineTopView.h"
 //model
 #import "MineModel.h"
 //tool
 #import "Masonry.h"
 
-@interface MineVC ()<UITableViewDelegate, UITableViewDataSource>
+@interface MineVC ()<UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-//table
-//@property (nonatomic, strong) UITableView *table;
-//退出按钮
+
 @property (nonatomic, strong) UIButton *Btn;
-@property (nonatomic, copy) NSMutableArray *selfArray1;
+
 @property (nonatomic, copy) NSMutableArray *selfArray2;
 @property (nonatomic, copy) NSMutableArray *selfArray3;
+@property (nonatomic, strong) MineTopView *topView;
 @end
 
 @implementation MineVC
@@ -33,7 +33,8 @@
     [super viewDidLoad];
     [self.view addSubview:self.table];
     [self.view addSubview:self.Btn];
-    
+    [self.view addSubview:self.topView];
+    self.table.tableHeaderView = self.topView;
     self.view.backgroundColor = [UIColor whiteColor];
     
     
@@ -46,16 +47,6 @@
     NSLog(@"%@", data);
     
     //取出每一个字典放入数组
-    NSArray *array0 = data[@"0"];
-    NSMutableArray *storyMuteAry0 = [NSMutableArray array];
-    for (int i = 0; i < 1; i++) {
-        //取每一个字典
-        NSDictionary *everyDic = array0[i];
-        MineModel *mineModel = [[MineModel alloc] initWithDictionary:everyDic];
-        [storyMuteAry0 addObject:mineModel];
-    }
-    self.selfArray1 = storyMuteAry0;
-    
     NSArray *array1 = data[@"1"];
     NSMutableArray *storyMuteAry1 = [NSMutableArray array];
     for (int i = 0; i < 1; i++) {
@@ -81,35 +72,26 @@
 #pragma mark-UITableViewDelegate
 //行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        return 100;
-    }
-    else
-        return 50;
+    return 50;
 }
 
 #pragma mark - UITableView点击跳转到头像页面
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        ChangeVC *change = [[ChangeVC alloc] init];
-        [self.navigationController pushViewController:change animated:YES];
-    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
 }
 
 #pragma mark-UITableViewDataSource
 //cell组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 2;
 }
 
 //cell行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
         case 0:
-            return 1;
-            break;
-        case 1:
             return 1;
             break;
         default:
@@ -127,14 +109,6 @@
         cell = [[MineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
     }
     if (indexPath.section == 0) {
-        MineModel *model = self.selfArray1[indexPath.row];
-        cell.title.text = model.title;
-        //灰色微信号
-        NSString *cnt = [NSUserDefaults.standardUserDefaults objectForKey:@"userAccount"];
-        cell.content.text = [NSString stringWithFormat:@"微信号：%@",cnt];
-        cell.imageView.image = [UIImage imageNamed:model.image];
-    }
-    else if (indexPath.section == 1) {
         MineModel *model = self.selfArray2[indexPath.row];
         cell.title.text = model.title;
         cell.imageView.image = [UIImage imageNamed:model.image];
@@ -151,20 +125,32 @@
 #pragma mark-懒加载
 - (UITableView *)table{
     if (!_table) {
-        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height - 100) style:UITableViewStyleGrouped];//屏幕大小
+        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height-100) style:UITableViewStyleGrouped];//屏幕大小
         _table.delegate = self;
         _table.dataSource = self;
     }
     return _table;
 }
 
+- (MineTopView *)topView {
+    if (!_topView) {
+        _topView = [[MineTopView alloc]init];
+        _topView.frame = CGRectMake(0, 100, self.view.frame.size.width, 100);
+        // 设置手势
+        _topView.imgView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(alterHeadPortrait:)];
+        [_topView.imgView addGestureRecognizer:singleTap];
+    }
+    return _topView;
+}
+
 - (UIButton *)Btn {
     if (_Btn == nil) {
         _Btn = [[UIButton alloc] init];
-        _Btn.frame = CGRectMake(0, self.view.frame.size.height - 270, self.view.frame.size.width, 50);
+        _Btn.frame = CGRectMake(0, self.view.frame.size.height - 340, self.view.frame.size.width, 50);
         [_Btn setTitle:@"退出" forState:UIControlStateNormal];
         [_Btn setBackgroundColor:[UIColor whiteColor]];
-        [_Btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_Btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         [_Btn addTarget:self action:@selector(exit:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _Btn;
@@ -174,19 +160,77 @@
 
 - (void)exit:(UIButton *)btn {
     btn.selected = !btn.selected;
-    //删除
+    // 点击按钮
     if (btn.selected == YES) {
+        // 状态：未登录
         [NSUserDefaults.standardUserDefaults setBool:NO forKey:@"isLoad"];
         LogVC *logVC = [[LogVC alloc] init];
-        [self.navigationController pushViewController:logVC animated:NO];
-//        [self.navigationController presentViewController:logVC animated:NO completion:^{
-//                    NSLog(@"成功");
-//        }];
+        logVC.modalPresentationStyle = 0;
+        [self presentViewController:logVC animated:NO completion:Nil];
+//        [self.navigationController pushViewController:logVC animated:NO];
     }
     else {
         [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"isLoad"];
     }
+}
+
+// 弹出提示框
+- (void)alterHeadPortrait:(UITapGestureRecognizer *)gesture{
+    //初始化提示框
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
+    //按钮：从相册选择，类型：UIAlertActionStyleDefault
+    [alert addAction:[UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self albumPhoto];
+    }]];
+    
+    //按钮：拍照，类型：UIAlertActionStyleDefault
+    [alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self takePhoto];
+    }]];
+    
+    //按钮：取消，类型：UIAlertActionStyleCancel
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+// 从相机
+- (void)takePhoto {
+    UIImagePickerController *pickImg = [[UIImagePickerController alloc]init];
+
+    //获取方式1：通过相册（呈现全部相册），UIImagePickerControllerSourceTypePhotoLibrary
+    //获取方式2，通过相机，UIImagePickerControllerSourceTypeCamera
+    //获取方方式3，通过相册（呈现全部图片），UIImagePickerControllerSourceTypeSavedPhotosAlbum
+    pickImg.sourceType = UIImagePickerControllerSourceTypeCamera;
+    pickImg.allowsEditing = YES;
+    pickImg.delegate = self;
+    //页面跳转
+    [self presentViewController:pickImg animated:YES completion:nil];
+}
+
+// 从相册
+- (void)albumPhoto {
+    UIImagePickerController *pickImg = [[UIImagePickerController alloc]init];
+    pickImg.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    pickImg.allowsEditing = YES;
+    pickImg.delegate = self;
+    [self presentViewController:pickImg animated:YES completion:^{
+            NSLog(@"did从相册");
+    }];
+}
+
+//PickerImage完成后的代理方法
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    //定义一个newPhoto，用来存放我们选择的图片。
+    UIImage *newPhoto = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    //把newPhono设置成头像
+    _topView.imgView.image = newPhoto;
+    //关闭当前界面，即回到主界面去
+    [self dismissViewControllerAnimated:YES completion:nil];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *imageData = UIImageJPEGRepresentation(self.topView.imgView.image, 1);
+    [userDefaults setObject:imageData forKey:@"userImage"];
+    [userDefaults synchronize];
 }
 
 /*

@@ -56,6 +56,8 @@
         _userImg = [[UIImageView alloc] init];
 //        _userImg.backgroundColor = [UIColor systemGrayColor];
         _userImg.image = [UIImage imageNamed:@"userImg"];
+        NSDate *cnt = [NSUserDefaults.standardUserDefaults objectForKey:@"userImage"];
+        _userImg.image = [UIImage imageWithData:cnt];
     }
     return _userImg;
 }

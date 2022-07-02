@@ -118,14 +118,16 @@
         btn.backgroundColor = [UIColor grayColor];
         [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"isLoad"];
         MainVC *mainVC = [[MainVC alloc] init];
+//        [self presentViewController:mainVC animated:YES completion:nil];
         [self.navigationController pushViewController:mainVC animated:YES];
         
-        //存名字
+        // 存名字
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:self.accountText.text forKey:@"userAccount"];
-        //存入磁盘
+        // 存入磁盘
         [defaults synchronize];
         NSString *string = [defaults objectForKey:@"userAccount"];
+        
         NSLog(@"????????%@",string);
 
     }

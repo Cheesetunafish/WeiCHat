@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		030A6EEF70ED2CDD2FE6E756 /* Pods_wechat_wechatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85BEF231465AE24881C5ECC0 /* Pods_wechat_wechatUITests.framework */; };
 		767CE9C3020E442D186192EF /* Pods_wechat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D7A64D828930C902C81678 /* Pods_wechat.framework */; };
+		7A2329E528709586009445C7 /* MineTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2329E428709586009445C7 /* MineTopView.m */; };
 		7A5EC4E228685319004F1A7D /* BannerPic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5EC4E128685319004F1A7D /* BannerPic.xcassets */; };
 		7A5EC4E428685B9E004F1A7D /* BookPic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5EC4E328685B9E004F1A7D /* BookPic.xcassets */; };
 		7A5EC4E628685C05004F1A7D /* MinePic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5EC4E528685C05004F1A7D /* MinePic.xcassets */; };
@@ -74,6 +75,8 @@
 		38D7A64D828930C902C81678 /* Pods_wechat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wechat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41359968C4729E2B042A9690 /* Pods-wechat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat.release.xcconfig"; path = "Target Support Files/Pods-wechat/Pods-wechat.release.xcconfig"; sourceTree = "<group>"; };
 		5F743E99C48343CF3861F9DF /* Pods-wechat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat.debug.xcconfig"; path = "Target Support Files/Pods-wechat/Pods-wechat.debug.xcconfig"; sourceTree = "<group>"; };
+		7A2329E328709586009445C7 /* MineTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTopView.h; sourceTree = "<group>"; };
+		7A2329E428709586009445C7 /* MineTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTopView.m; sourceTree = "<group>"; };
 		7A5EC4E128685319004F1A7D /* BannerPic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BannerPic.xcassets; sourceTree = "<group>"; };
 		7A5EC4E328685B9E004F1A7D /* BookPic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BookPic.xcassets; sourceTree = "<group>"; };
 		7A5EC4E528685C05004F1A7D /* MinePic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MinePic.xcassets; sourceTree = "<group>"; };
@@ -404,6 +407,8 @@
 			children = (
 				7ABDDC5228563A3A0079C156 /* MineCell.h */,
 				7ABDDC5328563A3A0079C156 /* MineCell.m */,
+				7A2329E328709586009445C7 /* MineTopView.h */,
+				7A2329E428709586009445C7 /* MineTopView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -738,6 +743,7 @@
 				7ABDDC5D2857072C0079C156 /* UIView+RoundCorner.m in Sources */,
 				7AD667112861E75F003F69B5 /* MenuView.m in Sources */,
 				7AD6666A28578BB4003F69B5 /* ChangeVC.m in Sources */,
+				7A2329E528709586009445C7 /* MineTopView.m in Sources */,
 				7AD66667285785C8003F69B5 /* MineModel.m in Sources */,
 				7AD6666D28582DF6003F69B5 /* TopView.m in Sources */,
 				7ABDDB5E284C81E10079C156 /* FindVC.m in Sources */,
