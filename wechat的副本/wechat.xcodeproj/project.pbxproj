@@ -193,6 +193,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7A61F90C287336A900966C28 /* FineView */ = {
+			isa = PBXGroup;
+			children = (
+				7AD6670B2860525A003F69B5 /* OperationMenu */,
+				7AD6670A2860516E003F69B5 /* PhotoContainer */,
+				7AD6670928605166003F69B5 /* CommemtView */,
+				7AD6670828605153003F69B5 /* HeaderView */,
+				7AD6670728605141003F69B5 /* Cell */,
+			);
+			path = FineView;
+			sourceTree = "<group>";
+		};
+		7A61F90D287336C800966C28 /* PostView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PostView;
+			sourceTree = "<group>";
+		};
 		7AA87094283DB32A00DAE17B = {
 			isa = PBXGroup;
 			children = (
@@ -382,11 +401,8 @@
 		7ABDDC49285623690079C156 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7AD6670B2860525A003F69B5 /* OperationMenu */,
-				7AD6670A2860516E003F69B5 /* PhotoContainer */,
-				7AD6670928605166003F69B5 /* CommemtView */,
-				7AD6670828605153003F69B5 /* HeaderView */,
-				7AD6670728605141003F69B5 /* Cell */,
+				7A61F90C287336A900966C28 /* FineView */,
+				7A61F90D287336C800966C28 /* PostView */,
 			);
 			path = View;
 			sourceTree = "<group>";

@@ -32,12 +32,21 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
 //        [self.contentView addSubview:self.contentImg];
         [self.contentView addSubview:self.content];
         [self.contentView addSubview:self.moreBtn];
+        // 加载menu
+        [self.contentView addSubview:self.operationMenu];
+        self.operationMenu.show = NO;   // 先隐藏
+        [self.contentView addSubview:self.operationButton];
 //        [self.contentView addSubview:self.likeBtn];
 //        [self.contentView addSubview:self.commentBtn];
         [self Position];
         //  高度自适应
         [super layoutSubviews];
         [self.content sizeToFit];
+        
+        NSLog(@"是否在显示中%d",self.operationMenu.isShowing);
+        if (self.operationMenu.isShowing == YES) {
+            self.operationMenu.show = NO;
+        }
     }
     return self;
 }
@@ -64,6 +73,7 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
     if (_content == nil) {
         _content = [[UILabel alloc] init];
         _content.numberOfLines = 0;
+        _content.font = [UIFont systemFontOfSize:15];
         [_content sizeToFit];   // 高度自适应
     }
     return _content;
@@ -117,11 +127,33 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
         _operationButton = [[UIButton alloc] init];
         [_operationButton setImage:[UIImage imageNamed:@"AlbumOperateMore"] forState:UIControlStateNormal];
         
-        [_operationButton addTarget:self action:@selector(operationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        
+            [_operationButton addTarget:self action:@selector(operationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     return _operationButton;
 }
 
+// 展开后view：点赞和评论
+- (MenuView *)operationMenu {
+    if (_operationMenu == nil) {
+        _operationMenu = [MenuView new];
+        __weak typeof (self) weakSelf = self;
+        // like按钮点击
+        [_operationMenu setLikeButtonClickedOperation:^{
+            if ([weakSelf.delegate respondsToSelector:@selector(didClickLikeButtonInCell:)]) {
+                [weakSelf.delegate didClickLikeButtonInCell:weakSelf];
+            }
+        }];
+        // comment点击
+        [_operationMenu setCommentButtonClickedOperation:^{
+            if ([weakSelf.delegate respondsToSelector:@selector(didClickcCommentButtonInCell:with:)]) {
+                [weakSelf.delegate didClickcCommentButtonInCell:weakSelf with:weakSelf.indexPath];
+            }
+        }];
+    }
+    return _operationMenu;
+}
 
 // 布局
 - (void)Position {
@@ -145,6 +177,22 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
         make.height.mas_equalTo(50);
     }];
     
+    [self.operationButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-50);
+//        make.bottom.equalTo(self).offset(-10);
+        make.top.equalTo(self.content.mas_bottom).offset(10);
+        make.width.mas_equalTo(25);
+        make.height.mas_equalTo(25);
+    }];
+    
+    [self.operationMenu mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.operationButton.mas_left);
+        make.centerY.equalTo(self.operationButton);;
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(30);
+    }];
+    
+    
 //    [self.contentImg mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.equalTo(self.content);
 //        make.top.equalTo(self.content.mas_bottom).mas_offset(10);
@@ -157,6 +205,7 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
     [self.title setSingleLineAutoResizeWithMaxWidth:200];   // 宽度最大值
     self.content.sd_layout.autoHeightRatio(0);  // 文字自适应
     self.moreBtn.sd_layout.leftEqualToView(self.content).topSpaceToView(self.content, 0).widthIs(30);
+   
 }
 
 
@@ -198,6 +247,14 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
     }
 }
 
+- (void)operationButtonClicked {
+    if (self.operationMenu.isShowing == NO) {
+        self.operationMenu.show = YES;
+    }
+    else {
+        self.operationMenu.show = NO;
+    }
+}
 
 
 @end

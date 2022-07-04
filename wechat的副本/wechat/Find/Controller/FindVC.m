@@ -12,20 +12,21 @@
 #import "FindCell.h"
 #import "BannerView.h"
 #import "TopView.h"
+#import "MenuView.h"
 // model
 #import "CellModel.h"
 // tool
 #import "SDAutoLayout.h"
 
-@interface FindVC ()<UITableViewDelegate,UITableViewDataSource,SDTimeLineCellDelegate,UITextFieldDelegate>
+@interface FindVC ()<UITableViewDelegate,UITableViewDataSource,operationCellDelegate,UITextFieldDelegate, postViewDelegate>
 
 @property (nonatomic, strong) UITableView *table;
 @property (nonatomic, strong) BannerView *banner;
 @property (nonatomic, strong) TopView *topView;
 @property (nonatomic, strong) FindCell *cell;
-
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
+@property (nonatomic, strong) FindPostVC *post;
 
 
 @end
@@ -37,6 +38,8 @@
     [self.view addSubview:self.table];
     [self.table addSubview:self.banner];
     self.table.tableHeaderView = self.banner;
+    _post = [FindPostVC new];
+    _post.delegate = self;
 //    [self.view addSubview:self.topView];
     
     //读取plist
@@ -58,8 +61,8 @@
     
     
     // 相机
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"相机" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemAction:)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:[[UILabel alloc]initWithFrame:CGRectMake(0, 5, 60, 30)]];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera"] style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemAction:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:[[UILabel alloc]initWithFrame:CGRectMake(0, 5, 20, 20)]];
      self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     
@@ -69,8 +72,11 @@
 
 // 相机界面跳转
 -(void)rightBarButtonItemAction:(id)sender{
-    FindPostVC *post = [[FindPostVC alloc]init];
-    [self.navigationController pushViewController:post animated:YES];
+//    FindPostVC *post = [[FindPostVC alloc]init];
+    _post.modalPresentationStyle = 0;
+    [self presentViewController:_post animated:YES completion:nil];
+    
+//    [self.navigationController pushViewController:post animated:YES];
 }
 
 #pragma mark-UITableViewDelegate
@@ -145,7 +151,7 @@
 
 - (BannerView *)banner {
     if (_banner == nil) {
-        _banner = [[BannerView alloc] init];
+        _banner = [BannerView new];
         
         _banner.frame = CGRectMake(0, 0, self.view.frame.size.width, 300);
         _banner.backgroundColor = [UIColor systemBlueColor];
@@ -155,11 +161,21 @@
 
 - (TopView *)topView {
     if (_topView == nil) {
-        _topView = [[TopView alloc] init];
-        
+        _topView = [TopView new];
         _topView.frame = CGRectMake(0, 0, self.view.frame.size.width, 100);
     }
     return _topView;
+}
+
+#pragma mark - postViewDelegate
+- (void)didClickedCancelButton {
+    self.modalPresentationStyle = 0;
+//    [_post presentViewController:self animated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didClickedPostButton {
+    
 }
 
 /*

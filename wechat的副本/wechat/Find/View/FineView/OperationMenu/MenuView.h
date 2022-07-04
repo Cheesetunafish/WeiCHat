@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 评论按钮
 @property (nonatomic, strong) UIButton *commentButton;
 
+- (void)setPositon;
 @end
 
 NS_ASSUME_NONNULL_END

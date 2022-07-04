@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol SDTimeLineCellDelegate <NSObject>
+@protocol operationCellDelegate <NSObject>
 
 // 点击like按钮
 - (void)didClickLikeButtonInCell:(UITableViewCell *)cell;
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FindCell : UITableViewCell
 
-@property (nonatomic, weak) id<SDTimeLineCellDelegate> delegate;
+@property (nonatomic, weak) id<operationCellDelegate> delegate;
 
 @property (nonatomic, strong) CellModel *model;
 
@@ -47,16 +47,18 @@ NS_ASSUME_NONNULL_BEGIN
 // 内容文字
 @property (nonatomic, strong) UILabel *content;
 
-// 按钮
-@property (nonatomic, strong) UIButton *moreBtn;    // 展开折叠文字内容
+// 展开全文按钮
+@property (nonatomic, strong) UIButton *moreBtn;
 // 操作按钮
-@property (nonatomic, strong) UIButton *operationButton;    // 展开点赞和评论按钮
+@property (nonatomic, strong) UIButton *operationButton;
+// 评论view
 @property (nonatomic, strong) CommentView *commentView;
 // like
 @property (nonatomic, strong) UIButton *likeButton; // 点赞按钮
 // comment
 @property (nonatomic, strong) UIButton *commentButton;  // 评论按钮
-
+// 操作界面
+@property (nonatomic, strong) MenuView *operationMenu;
 
 - (void)Position;
 - (void)moreButtonClicked;
