@@ -39,13 +39,13 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>a1老师</string>
+			<string>a1</string>
 			<key>image</key>
 			<string>image1</string>
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>a2老师</string>
+			<string>a2</string>
 			<key>image</key>
 			<string>image2</string>
 		</dict>
@@ -54,19 +54,19 @@
 	<array>
 		<dict>
 			<key>title</key>
-			<string>b1老师</string>
+			<string>b1</string>
 			<key>image</key>
 			<string>image3</string>
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>b2老师</string>
+			<string>b2</string>
 			<key>image</key>
 			<string>image4</string>
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>b3老师</string>
+			<string>b3</string>
 			<key>image</key>
 			<string>image5</string>
 		</dict>
@@ -75,13 +75,13 @@
 	<array>
 		<dict>
 			<key>title</key>
-			<string>c1老师</string>
+			<string>c1</string>
 			<key>image</key>
 			<string>image6</string>
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>c2老师</string>
+			<string>c2</string>
 			<key>image</key>
 			<string>image7</string>
 		</dict>
@@ -90,7 +90,7 @@
 	<array>
 		<dict>
 			<key>title</key>
-			<string>d1老师</string>
+			<string>d1</string>
 			<key>image</key>
 			<string>image8</string>
 		</dict>
@@ -99,7 +99,7 @@
 	<array>
 		<dict>
 			<key>title</key>
-			<string>e1老师</string>
+			<string>e1</string>
 			<key>image</key>
 			<string>image9</string>
 		</dict>
@@ -108,13 +108,13 @@
 	<array>
 		<dict>
 			<key>title</key>
-			<string>f1老师</string>
+			<string>f1</string>
 			<key>image</key>
 			<string>image10</string>
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>f2老师</string>
+			<string>f2</string>
 			<key>image</key>
 			<string>image11</string>
 		</dict>
@@ -123,7 +123,7 @@
 	<array>
 		<dict>
 			<key>title</key>
-			<string>g1老师</string>
+			<string>g1</string>
 			<key>image</key>
 			<string>image12</string>
 		</dict>

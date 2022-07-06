@@ -13,6 +13,8 @@
 		7A5EC4E228685319004F1A7D /* BannerPic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5EC4E128685319004F1A7D /* BannerPic.xcassets */; };
 		7A5EC4E428685B9E004F1A7D /* BookPic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5EC4E328685B9E004F1A7D /* BookPic.xcassets */; };
 		7A5EC4E628685C05004F1A7D /* MinePic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5EC4E528685C05004F1A7D /* MinePic.xcassets */; };
+		7A61F9542875BF3000966C28 /* PostPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A61F9532875BF3000966C28 /* PostPhotoView.m */; };
+		7A61F9572875E3DB00966C28 /* PostCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A61F9562875E3DB00966C28 /* PostCollectionCell.m */; };
 		7AA870A2283DB32A00DAE17B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA870A1283DB32A00DAE17B /* AppDelegate.m */; };
 		7AA870A8283DB32A00DAE17B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA870A7283DB32A00DAE17B /* ViewController.m */; };
 		7AA870AB283DB32A00DAE17B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA870A9283DB32A00DAE17B /* Main.storyboard */; };
@@ -80,6 +82,10 @@
 		7A5EC4E128685319004F1A7D /* BannerPic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BannerPic.xcassets; sourceTree = "<group>"; };
 		7A5EC4E328685B9E004F1A7D /* BookPic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BookPic.xcassets; sourceTree = "<group>"; };
 		7A5EC4E528685C05004F1A7D /* MinePic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MinePic.xcassets; sourceTree = "<group>"; };
+		7A61F9522875BF3000966C28 /* PostPhotoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostPhotoView.h; sourceTree = "<group>"; };
+		7A61F9532875BF3000966C28 /* PostPhotoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostPhotoView.m; sourceTree = "<group>"; };
+		7A61F9552875E3DB00966C28 /* PostCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCollectionCell.h; sourceTree = "<group>"; };
+		7A61F9562875E3DB00966C28 /* PostCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCollectionCell.m; sourceTree = "<group>"; };
 		7AA8709D283DB32A00DAE17B /* wechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AA870A0283DB32A00DAE17B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AA870A1283DB32A00DAE17B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -208,6 +214,10 @@
 		7A61F90D287336C800966C28 /* PostView */ = {
 			isa = PBXGroup;
 			children = (
+				7A61F9522875BF3000966C28 /* PostPhotoView.h */,
+				7A61F9532875BF3000966C28 /* PostPhotoView.m */,
+				7A61F9552875E3DB00966C28 /* PostCollectionCell.h */,
+				7A61F9562875E3DB00966C28 /* PostCollectionCell.m */,
 			);
 			path = PostView;
 			sourceTree = "<group>";
@@ -753,6 +763,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AA870DA283DDDB500DAE17B /* AccountTool.m in Sources */,
+				7A61F9542875BF3000966C28 /* PostPhotoView.m in Sources */,
 				7AD6670628604CBA003F69B5 /* CellModel.m in Sources */,
 				7AA870A8283DB32A00DAE17B /* ViewController.m in Sources */,
 				7ABDDC4C285623940079C156 /* FindCell.m in Sources */,
@@ -776,6 +787,7 @@
 				7ABDDB62284C81FE0079C156 /* MineVC.m in Sources */,
 				7ABDDB06284C7A9F0079C156 /* MainVC.m in Sources */,
 				7AA870B3283DB32C00DAE17B /* main.m in Sources */,
+				7A61F9572875E3DB00966C28 /* PostCollectionCell.m in Sources */,
 				7ABDDC5428563A3A0079C156 /* MineCell.m in Sources */,
 				7AA870D7283DB7B300DAE17B /* LogVC.m in Sources */,
 			);
