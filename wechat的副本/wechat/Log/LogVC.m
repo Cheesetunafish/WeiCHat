@@ -117,9 +117,13 @@
     if (btn.selected == YES) {  //点击存储，yes
         btn.backgroundColor = [UIColor grayColor];
         [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"isLoad"];
+        UIViewController *vc = [[UIViewController alloc]init];
+        
+//        MainVC *mainVC = [[MainVC alloc] init];
         MainVC *mainVC = [[MainVC alloc] init];
+        [mainVC inita];
 //        [self presentViewController:mainVC animated:YES completion:nil];
-        [self.navigationController pushViewController:mainVC animated:YES];
+        [self.navigationController pushViewController:vc animated:YES];
         
         // 存名字
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

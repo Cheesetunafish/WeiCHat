@@ -79,6 +79,10 @@
     return cell;
 }
 
+- (void) inita
+{
+    NSLog(@"%@",self.table);
+}
 
 
 #pragma mark-懒加载

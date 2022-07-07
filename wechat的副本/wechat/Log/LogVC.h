@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (void)logIn:(UIButton *)btn;
-- (void)getUserDefault;
+//- (void)getUserDefault;
 @end
 
 NS_ASSUME_NONNULL_END

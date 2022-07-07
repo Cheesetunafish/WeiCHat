@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MainVC : ViewController
 
+- (void) inita;
 @end
 
 NS_ASSUME_NONNULL_END
