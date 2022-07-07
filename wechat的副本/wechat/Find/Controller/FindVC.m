@@ -17,9 +17,14 @@
 #import "CellModel.h"
 // tool
 #import "SDAutoLayout.h"
+#import "MJRefresh.h"
 
-@interface FindVC ()<UITableViewDelegate,UITableViewDataSource,operationCellDelegate,UITextFieldDelegate, postViewDelegate>
+#define SCREENHEIGHT self.view.frame.size.height
+#define SCREENWIDTH self.view.frame.size.width
 
+@interface FindVC ()<UITableViewDelegate,UITableViewDataSource,/*operationCellDelegate,*/ UITextFieldDelegate, postViewDelegate>
+// 评论
+@property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UITableView *table;
 @property (nonatomic, strong) BannerView *banner;
 @property (nonatomic, strong) TopView *topView;
@@ -40,6 +45,16 @@
     self.table.tableHeaderView = self.banner;
     _post = [FindPostVC new];
     _post.delegate = self;
+    
+    
+    /*
+     MJRefresh
+     */
+//    __weak typeof(self) weakSelf = self;
+//    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        //刷新时候，需要执行的代码。一般是请求最新数据，请求成功之后，刷新列表
+//        [weakSelf loadNewData];
+//    }];
 //    [self.view addSubview:self.topView];
     
     //读取plist
@@ -58,26 +73,36 @@
     }
     self.dataArray = storyMuteAry;
     
-    
-    
     // 相机
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera"] style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemAction:)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:[[UILabel alloc]initWithFrame:CGRectMake(0, 5, 20, 20)]];
      self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-    
-    
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 
+#pragma mark - 方法
 // 相机界面跳转
 -(void)rightBarButtonItemAction:(id)sender{
-//    FindPostVC *post = [[FindPostVC alloc]init];
     _post.modalPresentationStyle = 0;
     [self presentViewController:_post animated:YES completion:nil];
-    
-//    [self.navigationController pushViewController:post animated:YES];
 }
+
+//- (void)loadNewData{
+//    NSLog(@"请求最新数据");
+//    //这里假设2秒之后获取到了最新的数据，刷新tableview，并且结束刷新控件的刷新状态
+//    __weak typeof(self) weakSelf = self;
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        //刷新列表
+//        [weakSelf.table reloadData];
+////        [self.banner setNeedsLayout];
+//        //拿到当前的刷新控件，结束刷新状态
+//        [weakSelf.table.mj_header endRefreshing];
+//    });
+//}
 
 #pragma mark-UITableViewDelegate
 // 行高
@@ -133,10 +158,22 @@
             [weakSelf.table reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }];
     }
-
+//    cell.delegate = self;
     // 设置数据
     cell.model = self.dataArray[indexPath.row];
     return cell;
+}
+
+
+#pragma mark - postViewDelegate
+- (void)didClickedCancelButton {
+    self.modalPresentationStyle = 0;
+//    [_post presentViewController:self animated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didClickedPostButton {
+    
 }
 
 #pragma mark- 懒加载
@@ -167,17 +204,52 @@
     return _topView;
 }
 
-#pragma mark - postViewDelegate
-- (void)didClickedCancelButton {
-    self.modalPresentationStyle = 0;
-//    [_post presentViewController:self animated:YES completion:nil];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
-- (void)didClickedPostButton {
+#pragma mark - operationCellDelegate
+// 点赞
+
+- (void)didClickedLikeButtonInCell:(UITableViewCell *)cell with:(NSIndexPath *)indexPath {
+    CellModel *model = self.dataArray[indexPath.row];
+    NSMutableArray *temp = [NSMutableArray arrayWithArray:model.likeItemsArray];
     
+    //添加点赞
+    if (!model.isLiked) {
+        CellLikeItemModel *likeModel = [CellLikeItemModel new];
+        likeModel.userName = @"小艾同学在轨道";
+//        likeModel.userId = @"randomUserId";
+        [temp addObject:likeModel];
+        model.liked = YES;
+    }
+    // 删除点赞
+    else {
+        CellLikeItemModel *tempLikeModel = nil;
+        for (CellLikeItemModel *likeModel in model.likeItemsArray) {
+            if ([likeModel.userName isEqualToString:@"小艾同学在轨道"]) {
+                tempLikeModel = likeModel;
+                break;
+            }
+        }
+        [temp removeObject:tempLikeModel];
+        model.liked = NO;
+    }
+    model.likeItemsArray = [temp copy];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.table reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    });
 }
 
+// 评论
+- (void)didClickedCommentButtonInCell:(UITableViewCell *)cell with:(NSIndexPath *)indexPath {
+    CellModel *model = self.dataArray[indexPath.row];
+    _textField.frame = CGRectMake(0, SCREENHEIGHT-120, SCREENWIDTH, 40);
+    _textField.placeholder = [NSString stringWithFormat:@" 评论 %@", model.name];
+    [_textField becomeFirstResponder];
+
+}
+ 
+ 
+ 
 /*
 #pragma mark - Navigation
 

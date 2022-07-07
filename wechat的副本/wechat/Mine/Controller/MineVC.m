@@ -140,6 +140,10 @@
         _topView.imgView.userInteractionEnabled = YES;
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(alterHeadPortrait:)];
         [_topView.imgView addGestureRecognizer:singleTap];
+        
+        _topView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapother = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(checkPhoto:)];
+        [_topView addGestureRecognizer:tapother];
     }
     return _topView;
 }
@@ -192,6 +196,11 @@
     //按钮：取消，类型：UIAlertActionStyleCancel
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)checkPhoto:(UITapGestureRecognizer *)gesture{
+    ChangeVC *vc = [ChangeVC new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 // 从相机

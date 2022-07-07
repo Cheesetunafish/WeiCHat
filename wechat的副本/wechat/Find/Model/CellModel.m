@@ -64,3 +64,14 @@ extern CGFloat maxContentLabelHeight;
 }
 
 @end
+
+@implementation CellLikeItemModel
+
+
+@end
+
+@implementation CellCommentItemModel
+
+
+
+@end

@@ -89,13 +89,14 @@
     return btn;
 }
 
+// 点赞按钮方法
 - (void)likeButtonClicked {
     if (self.likeButtonClickedOperation) {
         self.likeButtonClickedOperation();
     }
     self.show = NO; // 关闭menu
 }
-
+// 评论按钮方法
 - (void)commentButtonClicked {
     if (self.commentButtonClickedOperation) {
         self.commentButtonClickedOperation();

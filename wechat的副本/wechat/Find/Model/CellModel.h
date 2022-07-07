@@ -53,8 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *userId;
-
 @property (nonatomic, copy) NSAttributedString *attributedContent;
+
 
 @end
 
@@ -69,8 +69,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *secondUserName;
 @property (nonatomic, copy) NSString *secondUserId;
-
 @property (nonatomic, copy) NSAttributedString *attributedContent;
+
 @end
 
 NS_ASSUME_NONNULL_END

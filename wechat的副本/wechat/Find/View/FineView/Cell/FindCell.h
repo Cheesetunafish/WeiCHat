@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol operationCellDelegate <NSObject>
 
 // 点击like按钮
-- (void)didClickLikeButtonInCell:(UITableViewCell *)cell;
+- (void)didClickedLikeButtonInCell:(UITableViewCell *)cell with:(NSIndexPath *)indexPath;
 // 点击comment按钮
-- (void)didClickcCommentButtonInCell:(UITableViewCell *)cell with:(NSIndexPath *)indexPath;
+- (void)didClickedCommentButtonInCell:(UITableViewCell *)cell with:(NSIndexPath *)indexPath;
 
 @end
 
@@ -53,10 +53,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIButton *operationButton;
 // 评论view
 @property (nonatomic, strong) CommentView *commentView;
-// like
-@property (nonatomic, strong) UIButton *likeButton; // 点赞按钮
-// comment
-@property (nonatomic, strong) UIButton *commentButton;  // 评论按钮
+// like按钮
+//@property (nonatomic, strong) UIButton *likeBtn;
+// comment按钮
+//@property (nonatomic, strong) UIButton *commentBtn;
 // 操作界面
 @property (nonatomic, strong) MenuView *operationMenu;
 

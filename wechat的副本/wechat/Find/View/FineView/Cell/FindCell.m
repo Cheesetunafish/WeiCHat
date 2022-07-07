@@ -15,7 +15,6 @@
 #import <UITableView+SDAutoTableViewCellHeight.h>
 
 
-NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLineCellOperationButtonClickedNotification";
 
 const CGFloat contentLabelFontSize = 15;
 
@@ -87,13 +86,21 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
 //    return _contentImg;
 //}
 
-// 点赞按钮
+//// 点赞按钮
 //- (UIButton *)likeBtn {
 //    if (_likeBtn == nil) {
 //        _likeBtn = [[UIButton alloc] init];
-//        [_likeBtn setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+//        [_likeBtn addTarget:self action:@selector(didClickedLikeButtonInCell:) forControlEvents:UIControlEventTouchUpInside];
 //    }
 //    return _likeBtn;
+//}
+//
+//- (UIButton *)commentBtn {
+//    if (_commentBtn == nil) {
+//        _commentBtn = [[UIButton alloc] init];
+//        [_commentBtn addTarget:self action:@selector(didClickedCommentButtonInCell:) forControlEvents:UIControlEventTouchUpInside];
+//    }
+//    return _commentBtn;
 //}
 
 // 评论View
@@ -126,8 +133,6 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
     if (_operationButton == nil) {
         _operationButton = [[UIButton alloc] init];
         [_operationButton setImage:[UIImage imageNamed:@"AlbumOperateMore"] forState:UIControlStateNormal];
-        
-        
             [_operationButton addTarget:self action:@selector(operationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         
     }
@@ -139,16 +144,16 @@ CGFloat maxContentLabelHeight = 50; // 根据具体font而定
     if (_operationMenu == nil) {
         _operationMenu = [MenuView new];
         __weak typeof (self) weakSelf = self;
-        // like按钮点击
+        // like按钮点击：先执行代理
         [_operationMenu setLikeButtonClickedOperation:^{
-            if ([weakSelf.delegate respondsToSelector:@selector(didClickLikeButtonInCell:)]) {
-                [weakSelf.delegate didClickLikeButtonInCell:weakSelf];
+            if ([weakSelf.delegate respondsToSelector:@selector(didClickedLikeButtonInCell:with:)]) {
+                [weakSelf.delegate didClickedLikeButtonInCell:weakSelf with:weakSelf.indexPath];
             }
         }];
         // comment点击
         [_operationMenu setCommentButtonClickedOperation:^{
-            if ([weakSelf.delegate respondsToSelector:@selector(didClickcCommentButtonInCell:with:)]) {
-                [weakSelf.delegate didClickcCommentButtonInCell:weakSelf with:weakSelf.indexPath];
+            if ([weakSelf.delegate respondsToSelector:@selector(didClickedCommentButtonInCell:with:)]) {
+                [weakSelf.delegate didClickedCommentButtonInCell:weakSelf with:weakSelf.indexPath];
             }
         }];
     }

@@ -9,7 +9,7 @@
 //Tool
 #import "Masonry.h"
 #import "UIView+RoundCorner.h"
-
+#import "MJRefresh.h"
 @implementation BannerView
 
 - (instancetype)init {
