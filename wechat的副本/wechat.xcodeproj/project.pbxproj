@@ -15,6 +15,7 @@
 		7A5EC4E628685C05004F1A7D /* MinePic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5EC4E528685C05004F1A7D /* MinePic.xcassets */; };
 		7A61F9542875BF3000966C28 /* PostPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A61F9532875BF3000966C28 /* PostPhotoView.m */; };
 		7A61F9572875E3DB00966C28 /* PostCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A61F9562875E3DB00966C28 /* PostCollectionCell.m */; };
+		7A910A0A28E17BEB0002DEC6 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A910A0928E17BEB0002DEC6 /* CollectionViewCell.m */; };
 		7AA870A2283DB32A00DAE17B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA870A1283DB32A00DAE17B /* AppDelegate.m */; };
 		7AA870A8283DB32A00DAE17B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA870A7283DB32A00DAE17B /* ViewController.m */; };
 		7AA870AB283DB32A00DAE17B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA870A9283DB32A00DAE17B /* Main.storyboard */; };
@@ -86,6 +87,8 @@
 		7A61F9532875BF3000966C28 /* PostPhotoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostPhotoView.m; sourceTree = "<group>"; };
 		7A61F9552875E3DB00966C28 /* PostCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCollectionCell.h; sourceTree = "<group>"; };
 		7A61F9562875E3DB00966C28 /* PostCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCollectionCell.m; sourceTree = "<group>"; };
+		7A910A0828E17BEB0002DEC6 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		7A910A0928E17BEB0002DEC6 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		7AA8709D283DB32A00DAE17B /* wechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AA870A0283DB32A00DAE17B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AA870A1283DB32A00DAE17B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -222,6 +225,15 @@
 			path = PostView;
 			sourceTree = "<group>";
 		};
+		7A910A0728E17B8B0002DEC6 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				7A910A0828E17BEB0002DEC6 /* CollectionViewCell.h */,
+				7A910A0928E17BEB0002DEC6 /* CollectionViewCell.m */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		7AA87094283DB32A00DAE17B = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +259,7 @@
 		7AA8709F283DB32A00DAE17B /* wechat */ = {
 			isa = PBXGroup;
 			children = (
+				7A910A0728E17B8B0002DEC6 /* New Group */,
 				7AA870A0283DB32A00DAE17B /* AppDelegate.h */,
 				7AA870A1283DB32A00DAE17B /* AppDelegate.m */,
 				7AA870A6283DB32A00DAE17B /* ViewController.h */,
@@ -770,6 +783,7 @@
 				7ABDDC5D2857072C0079C156 /* UIView+RoundCorner.m in Sources */,
 				7AD667112861E75F003F69B5 /* MenuView.m in Sources */,
 				7AD6666A28578BB4003F69B5 /* ChangeVC.m in Sources */,
+				7A910A0A28E17BEB0002DEC6 /* CollectionViewCell.m in Sources */,
 				7A2329E528709586009445C7 /* MineTopView.m in Sources */,
 				7AD66667285785C8003F69B5 /* MineModel.m in Sources */,
 				7AD6666D28582DF6003F69B5 /* TopView.m in Sources */,
