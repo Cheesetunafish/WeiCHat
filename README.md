@@ -14,8 +14,11 @@ SDK does not contain 'libarclite' at the path '/Applications/Xcode.app/Contents/
 
 解决方案：
 
-1. 修改iOS部署目标版本。修改为最低版本iOS13
-2. 在Podfile文末添加如下代码。自动将所有 pod 目标更改为 iOS 13`pod install`
+1. 修改Podfile：`platform :ios, '13.0'`
+
+2. 在项目导航器中`Pod`项中修改iOS部署目标版本。修改为最低版本iOS13
+
+3. 在Podfile文末添加如下代码。自动将所有 pod 目标更改为 iOS 13`pod install`
 
 ```lua
 post_install do |installer|
