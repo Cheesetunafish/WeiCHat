@@ -14,23 +14,32 @@
 
 @property (nonatomic, strong) UITableView *table;
 @property (nonatomic, copy) NSMutableArray *selfArray;
-@property (nonatomic, strong) MainModel *model;
+
 
 @end
 
 @implementation MainVC
 
+//+ (instancetype)sharedInstanced  {
+//    static MainVC *main = nil;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        main = [[MainVC alloc] init];
+//    });
+//    return main;
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.table];
-    
-    
+    [self loadMyData];
+}
+
+-  (void)loadMyData {
     //读取plist
-    //1.创建路径（maybe
+    //1.创建路径
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"MainPlist2" ofType:@"plist"];
     //2.获取路径
     NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    
     
     //取出每一个字典放入数组
 //    NSMutableArray *array = [NSMutableArray array];
@@ -45,7 +54,6 @@
     self.selfArray = storyMuteAry;
     
     self.view.backgroundColor = [UIColor whiteColor];
-    // Do any additional setup after loading the view.
 }
 
 #pragma mark-UITableViewDelegate

@@ -19,6 +19,9 @@
 @property (nonatomic, copy) NSMutableArray *selfArray6;
 @property (nonatomic, copy) NSMutableArray *selfArray7;
 @property (nonatomic, copy) NSMutableArray *selfArray8;
+// 总数组
+@property (nonatomic, copy) NSMutableArray<NSMutableArray *> *selfArrayAll;
+
 @property (nonatomic, strong) BookModel *model;
 @end
 
@@ -27,9 +30,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.table];
-    
-//    self.view.backgroundColor = [UIColor whiteColor];
-    
+    [self addData];
+    //    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)addData {
     //读取plist
     //1.创建路径（maybe
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"BookPlist" ofType:@"plist"];
@@ -37,10 +42,23 @@
     NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     
     
+    for (NSArray * array in [data allValues]) {
+        NSLog(@"array%@",array);
+        for (int i = 0; i < array.count; i++) {
+            NSMutableArray *storyMuteAry = [NSMutableArray array];
+            NSDictionary *everyDic = array[i];
+            BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
+            [storyMuteAry addObject:bookModel];
+            self.selfArrayAll[i] = storyMuteAry;
+        }
+        
+    }
+    
+    /*
     //取出每一个字典放入数组
     NSArray *array = data[@"cell"];
     NSMutableArray *storyMuteAry = [NSMutableArray array];
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < array.count; i++) {
         //取每一个字典
         NSDictionary *everyDic = array[i];
         BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
@@ -51,7 +69,7 @@
     //A组数据
     NSArray *array2 = data[@"A"];
     NSMutableArray *storyMuteAry2 = [NSMutableArray array];
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < array2.count; i++) {
         //取每一个字典
         NSDictionary *everyDic = array2[i];
         BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
@@ -62,7 +80,7 @@
     //B组数据
     NSArray *array3 = data[@"B"];
     NSMutableArray *storyMuteAry3 = [NSMutableArray array];
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < array3.count; i++) {
         //取每一个字典
         NSDictionary *everyDic = array3[i];
         BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
@@ -73,7 +91,7 @@
     //C组数据
     NSArray *array4 = data[@"C"];
     NSMutableArray *storyMuteAry4 = [NSMutableArray array];
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < array4.count; i++) {
         //取每一个字典
         NSDictionary *everyDic = array4[i];
         BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
@@ -84,7 +102,7 @@
     //D组数据
     NSArray *array5 = data[@"D"];
     NSMutableArray *storyMuteAry5 = [NSMutableArray array];
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < array5.count; i++) {
         //取每一个字典
         NSDictionary *everyDic = array5[i];
         BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
@@ -95,7 +113,7 @@
     //E组数据
     NSArray *array6 = data[@"E"];
     NSMutableArray *storyMuteAry6 = [NSMutableArray array];
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < array6.count; i++) {
         //取每一个字典
         NSDictionary *everyDic = array6[i];
         BookModel *bookModel = [[BookModel alloc] initWithDictionary:everyDic];
@@ -106,7 +124,7 @@
     //F组数据
     NSArray *array7 = data[@"F"];
     NSMutableArray *storyMuteAry7 = [NSMutableArray array];
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < array7.count; i++) {
         //取每一个字典
         NSDictionary *everyDic = array7[i];
         BookModel *mainModel = [[BookModel alloc] initWithDictionary:everyDic];
@@ -117,15 +135,16 @@
     //G组数据
     NSArray *array8 = data[@"G"];
     NSMutableArray *storyMuteAry8 = [NSMutableArray array];
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < array8.count; i++) {
         //取每一个字典
         NSDictionary *everyDic = array8[i];
         BookModel *mainModel = [[BookModel alloc] initWithDictionary:everyDic];
         [storyMuteAry8 addObject:mainModel];
     }
     self.selfArray8 = storyMuteAry8;
+     */
+    
 }
-
 
 #pragma mark-UITableViewDelegate
 //行高
@@ -138,6 +157,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 8;
 }
+
 //cell头标签
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
@@ -202,6 +222,15 @@
     if (cell == nil) {
         cell = [[BookCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
     }
+    
+    for (int i = 0; i < self.selfArrayAll.count; i++) {
+        BookModel *model = self.selfArrayAll[i][indexPath.row];
+        cell.title.text = model.title;
+        cell.imgView.image = [UIImage imageNamed:model.image];
+    }
+    
+    /*
+    
     //@"cell"
     if (indexPath.section == 0) {
         BookModel *model = self.selfArray1[indexPath.row];
@@ -250,6 +279,7 @@
         cell.title.text = model.title;
         cell.imgView.image = [UIImage imageNamed:model.image];
     }
+     */
     return cell;
 }
 

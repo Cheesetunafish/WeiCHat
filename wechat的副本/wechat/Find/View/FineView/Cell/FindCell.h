@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol operationCellDelegate <NSObject>
+@protocol FindCellDelegate <NSObject>
 
 // 点击like按钮
 - (void)didClickedLikeButtonInCell:(UITableViewCell *)cell with:(NSIndexPath *)indexPath;
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FindCell : UITableViewCell
 
-@property (nonatomic, weak) id<operationCellDelegate> delegate;
+@property (nonatomic, weak) id<FindCellDelegate> delegate;
 
 @property (nonatomic, strong) CellModel *model;
 

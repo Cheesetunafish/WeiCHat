@@ -45,7 +45,7 @@
     self.table.tableHeaderView = self.banner;
     _post = [FindPostVC new];
     _post.delegate = self;
-    
+    [self loadTopView];
     
     /*
      MJRefresh
@@ -73,17 +73,19 @@
     }
     self.dataArray = storyMuteAry;
     
-    // 相机
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera"] style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemAction:)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:[[UILabel alloc]initWithFrame:CGRectMake(0, 5, 20, 20)]];
-     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-    self.view.backgroundColor = [UIColor whiteColor];
+    
     
     
     
     // Do any additional setup after loading the view.
 }
-
+- (void)loadTopView {
+    // 相机
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera"] style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemAction:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:[[UILabel alloc]initWithFrame:CGRectMake(0, 5, 20, 20)]];
+     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    self.view.backgroundColor = [UIColor whiteColor];
+}
 #pragma mark - 方法
 // 相机界面跳转
 -(void)rightBarButtonItemAction:(id)sender{

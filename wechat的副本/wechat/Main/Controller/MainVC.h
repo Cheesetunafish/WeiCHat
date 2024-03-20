@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MainVC : ViewController
 
 - (void) inita;
+//+ (instancettype)sharedInstanced;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,8 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol postViewDelegate <NSObject>
 
+@optional
+
 - (void) didClickedCancelButton;
 - (void) didClickedPostButton;
+
 @end
 
 @interface FindPostVC : ViewController
